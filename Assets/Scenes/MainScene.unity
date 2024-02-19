@@ -62842,7 +62842,7 @@ MonoBehaviour:
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 1653556322778236169, guid: 1f69ecd986d990d449cd1c554aad302c, type: 3}
   ForceThisTileNext: {fileID: 1653556322778236169, guid: 1f69ecd986d990d449cd1c554aad302c, type: 3}
-  _forceThisRarity: 0
+  _forceThisRarity: 1
   _forceGolden: 0
   _rotationDurationS: 10
   _animeTileCountMin: 10
