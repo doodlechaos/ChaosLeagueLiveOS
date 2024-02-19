@@ -26,7 +26,7 @@ public class QuipBattleGame : Game
 
     [SerializeField] private PBEffector _voteValueEffector;
 
-    [SerializeField] private QuipBattleGameQuestions qBGQ;
+    [SerializeField] private QuipBattleGameQuestions qBGQ = new();
 
     private void Awake()
     {
