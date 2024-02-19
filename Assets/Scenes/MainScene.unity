@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -62820,6 +62820,7 @@ MonoBehaviour:
   - {fileID: 5481711066216898309, guid: 2dde99fa00c41fb46b80c6734ec8060f, type: 3}
   - {fileID: 1251292255789827514, guid: 92c64f292d249114189a7c3c7c7d89f3, type: 3}
   - {fileID: 6275913431883320091, guid: 20b9c01c75b35e548ad271ade1b2253e, type: 3}
+  - {fileID: 1653556322778236169, guid: 1f69ecd986d990d449cd1c554aad302c, type: 3}
   CommonTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   RareTiles:
@@ -62839,9 +62840,9 @@ MonoBehaviour:
   BidHandler: {fileID: 558830488}
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
-  NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 5521807422773572966, guid: 8cb5b5eb8ce99754391feb9ac5e4e005, type: 3}
-  _forceThisRarity: 1
+  NextBiddingTile: {fileID: 1653556322778236169, guid: 1f69ecd986d990d449cd1c554aad302c, type: 3}
+  ForceThisTileNext: {fileID: 1653556322778236169, guid: 1f69ecd986d990d449cd1c554aad302c, type: 3}
+  _forceThisRarity: 0
   _forceGolden: 0
   _rotationDurationS: 10
   _animeTileCountMin: 10
