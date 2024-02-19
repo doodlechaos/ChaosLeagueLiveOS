@@ -196,10 +196,9 @@ public class GameManager : MonoBehaviour
 
         AppConfig.LoadFromJson(fileContents);
 
-        string promptsPath = Path.Combine(Application.streamingAssetsPath, "quipBattlePrompts.json");
-        string promptsJSON = File.ReadAllText(promptsPath);
 
-        QuipBattlePrompts.LoadPrompts(promptsJSON);
+
+        //QuipBattlePrompts.LoadPrompts(promptsJSON);
 
         string pathToEnv = Path.Combine(Application.streamingAssetsPath, "secrets.env");
         AppConfig.LoadEnvironmentVariables(pathToEnv); 

@@ -51,17 +51,7 @@ public class ConfigItem : INotifyPropertyChanged
     
 }
 
-[System.Serializable]
-public class QuipBattlePrompts
-{
-    public static QuipBattlePrompts inst { get; private set; }
-    public List<string> prompts;
 
-    public static void LoadPrompts(string json)
-    {
-        inst = JsonConvert.DeserializeObject<QuipBattlePrompts>(json);
-    }
-}
 
 [System.Serializable]
 public class AppConfig
@@ -73,6 +63,7 @@ public class AppConfig
 
     public Dictionary<string, int> downloadedEmoteIndexMap;
 
+    public static QuipBattleGameQuestions QuipBattleQuestions = new QuipBattleGameQuestions(); 
 
     public static AppConfig inst { get; private set; }
 
