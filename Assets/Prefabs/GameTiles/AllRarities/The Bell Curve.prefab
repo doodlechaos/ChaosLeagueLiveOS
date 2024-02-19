@@ -12240,7 +12240,8 @@ PrefabInstance:
       value: SpinningPegLayer (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 53737051278765724, guid: dd9729d651b6be941a4c10875b47514e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9729d651b6be941a4c10875b47514e, type: 3}
@@ -12661,7 +12662,8 @@ PrefabInstance:
       value: SpinningPegLayer (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 53737051278765724, guid: dd9729d651b6be941a4c10875b47514e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9729d651b6be941a4c10875b47514e, type: 3}
