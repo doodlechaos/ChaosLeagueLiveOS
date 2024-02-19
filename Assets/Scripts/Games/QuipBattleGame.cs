@@ -33,7 +33,7 @@ public class QuipBattleGame : Game
 
     public override void OnTilePreInit()
     {
-        string prompt = AppConfig.inst.prompts[_gt.GetTileController().GetNextPromptIndex()];
+        string prompt = QuipBattlePrompts.inst.prompts[_gt.GetTileController().GetNextPromptIndex()];
         _promptText.SetText(prompt);
         //Debug.Log($"Setting next prompt to {prompt}");
 
