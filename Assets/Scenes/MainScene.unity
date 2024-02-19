@@ -62567,10 +62567,10 @@ MonoBehaviour:
   _twitchClient: {fileID: 719420099}
   _rebellionController: {fileID: 481457712}
   _goldDistributor: {fileID: 2040148666}
-  _commonRarity: 0.69
-  _rareRarity: 0.25
-  _epicRarity: 0.05
-  _legendaryRarity: 0.01
+  _commonRarity: 0.7
+  _rareRarity: 0.2
+  _epicRarity: 0.07
+  _legendaryRarity: 0.03
   AllRarities:
   - {fileID: 647519542019892001, guid: e7d6d474eb53ee543a42fecfd320c642, type: 3}
   - {fileID: 2605624827304256445, guid: 63656aac225b90f41ab4bf38f06eacb0, type: 3}
@@ -62580,8 +62580,12 @@ MonoBehaviour:
   - {fileID: 3534562126315921842, guid: 91912fc0c1e760e45858c1c661dde2e2, type: 3}
   - {fileID: 5481711066216898309, guid: 2dde99fa00c41fb46b80c6734ec8060f, type: 3}
   - {fileID: 6275913431883320091, guid: 20b9c01c75b35e548ad271ade1b2253e, type: 3}
+  - {fileID: 6216378128248226811, guid: 77738680a8747f347a4bebe51311c36c, type: 3}
+  - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
+  - {fileID: 593247144054054691, guid: 10096080d6afebf4e8ce7b548a8aa7cd, type: 3}
+  - {fileID: 9018865158267012433, guid: 1664d906265e7214a846d2921b88bd68, type: 3}
+  - {fileID: 1251292255789827514, guid: 92c64f292d249114189a7c3c7c7d89f3, type: 3}
   - {fileID: 647519542019892001, guid: a18aab497cf1c6841a82ebaa6dd15e94, type: 3}
-  - {fileID: 647519542019892001, guid: 0298f78e094f3014991dc262d74a57b5, type: 3}
   CommonTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   RareTiles:
@@ -62592,7 +62596,7 @@ MonoBehaviour:
   - {fileID: 5529546809039867891, guid: 37849db5ac2c9c34e9c8479298f7b521, type: 3}
   - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
   LegendaryTiles:
-  - {fileID: 6216378128248226811, guid: 77738680a8747f347a4bebe51311c36c, type: 3}
+  - {fileID: 647519542019892001, guid: 0298f78e094f3014991dc262d74a57b5, type: 3}
   HoldingPen: {fileID: 1236041840620280661}
   TilesRoot: {fileID: 6209824866414034768}
   LeftTileCenter: {fileID: 3708241436202060553}
@@ -62602,8 +62606,8 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 5521807422773572966, guid: 8cb5b5eb8ce99754391feb9ac5e4e005, type: 3}
-  _forceThisRarity: 1
+  ForceThisTileNext: {fileID: 647519542019892001, guid: a18aab497cf1c6841a82ebaa6dd15e94, type: 3}
+  _forceThisRarity: 0
   _forceGolden: 0
   _rotationDurationS: 10
   _animeTileCountMin: 10
