@@ -363,7 +363,7 @@ public class TileController : MonoBehaviour
     public int GetNextPromptIndex()
     {
         int nextIndex = _promptIndex;
-        _promptIndex = (_promptIndex + 1) % AppConfig.inst.prompts.Count; 
+        _promptIndex = (_promptIndex + 1) % QuipBattlePrompts.inst.prompts.Count; 
         return nextIndex;
     }
 

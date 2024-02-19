@@ -52,13 +52,24 @@ public class ConfigItem : INotifyPropertyChanged
 }
 
 [System.Serializable]
+public class QuipBattlePrompts
+{
+    public static QuipBattlePrompts inst { get; private set; }
+    public List<string> prompts;
+
+    public static void LoadPrompts(string json)
+    {
+        inst = JsonConvert.DeserializeObject<QuipBattlePrompts>(json);
+    }
+}
+
+[System.Serializable]
 public class AppConfig
 {
     public Dictionary<string, ConfigItem> configData;
 
     public Dictionary<string, float> volumes;
 
-    public List<string> prompts;
 
     public Dictionary<string, int> downloadedEmoteIndexMap;
 
@@ -118,6 +129,7 @@ public class AppConfig
         inst = JsonConvert.DeserializeObject<AppConfig>(json);
     }
 
+
     public static void LoadEnvironmentVariables(string pathToEnv)
     {
         if (File.Exists(pathToEnv))
@@ -140,7 +152,7 @@ public class AppConfig
         }
         else
         {
-            Debug.LogError(".env file not found.");
+            Debug.LogWarning(".env file not found.");
         }
     }
 

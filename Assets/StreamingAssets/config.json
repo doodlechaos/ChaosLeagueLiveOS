@@ -219,7 +219,7 @@
     },
     "API_MODE": {
       "Menu": 5,
-      "Value": "STAGING",
+      "Value": "PUBLIC",
       "UIDisplayText": "API_MODE (STAGING, PRIVATE, PUBLIC)"
     },
     "CLIENT_ID_PUBLIC": {
