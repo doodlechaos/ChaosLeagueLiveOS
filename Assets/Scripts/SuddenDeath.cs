@@ -16,6 +16,7 @@ public class SuddenDeath : MonoBehaviour
     [SerializeField] private Transform _deathBallSpawnPoint;
     [SerializeField] private Color _ringColor;
     [SerializeField] private Color _deathBallWarningColor;
+    [SerializeField] private bool NoMultiply;
 
     //[SerializeField] private int _doublingDeathBallInterval = 3;
 
@@ -82,7 +83,10 @@ public class SuddenDeath : MonoBehaviour
             if (t >= 1)
             {
                 timer = 0;
-                ActivateDoubling();
+                if (NoMultiply)
+                    SpawnDeathBall();
+                else
+                ActivateDoubling(); 
             }
 
             timer += Time.deltaTime;
