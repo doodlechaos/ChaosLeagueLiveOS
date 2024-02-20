@@ -26,6 +26,8 @@ public class QuipBattleGame : Game
 
     [SerializeField] private PBEffector _voteValueEffector;
 
+    //[SerializeField] private QuipBattleGameQuestions qBGQ = new();
+
     private void Awake()
     {
         _voteCountTexts = _voteCountTextsRoot.GetComponentsInChildren<TextMeshPro>();
@@ -33,7 +35,8 @@ public class QuipBattleGame : Game
 
     public override void OnTilePreInit()
     {
-        string prompt = AppConfig.inst.prompts[_gt.GetTileController().GetNextPromptIndex()];
+        string prompt = AppConfig.QuipBattleQuestions.GetPrompt();
+        //string prompt = QuipBattlePrompts.inst.prompts[_gt.GetTileController().GetNextPromptIndex()];
         _promptText.SetText(prompt);
         //Debug.Log($"Setting next prompt to {prompt}");
 
