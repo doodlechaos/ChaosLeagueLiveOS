@@ -60,7 +60,7 @@ MonoBehaviour:
   _spawnRates: 0a000000030000000100000005000000
   _targetObsCount: 0
   _chaosObsRoot: {fileID: 2171312231585510354}
-  _spawnInterval: 0.5
+  _spawnInterval: 0.25
 --- !u!1 &2359676216558765719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,12 +2226,24 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: _deathballPattern.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: _deathballPattern.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: _deathballPattern.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _deathballPattern.Array.data[4]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _deathballPattern.Array.data[5]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7325491386596941882, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _deathballPattern.Array.data[6]
