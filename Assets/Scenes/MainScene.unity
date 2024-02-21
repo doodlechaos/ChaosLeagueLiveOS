@@ -36850,22 +36850,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   _totalPrizeGradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0.8906796, b: 1, a: 1}
-    key1: {r: 0.07717762, g: 1, b: 0.07058823, a: 1}
-    key2: {r: 0.6933989, g: 0.14117646, b: 1, a: 0}
-    key3: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
-    key4: {r: 1, g: 1, b: 1, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 0.7579201, b: 0.4009434, a: 1}
+    key1: {r: 0.73146665, g: 1, b: 0, a: 1}
+    key2: {r: 0.031372547, g: 1, b: 0.15385231, a: 0}
+    key3: {r: 0.3160377, g: 0.36088553, b: 1, a: 0}
+    key4: {r: 0.19480072, g: 0.13501245, b: 0.6981132, a: 0}
+    key5: {r: 0.45847428, g: 0.16470587, b: 1, a: 0}
+    key6: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
     ctime0: 0
-    ctime1: 1347
-    ctime2: 4040
-    ctime3: 23277
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
+    ctime1: 3277
+    ctime2: 13107
+    ctime3: 26214
+    ctime4: 39321
+    ctime5: 52428
+    ctime6: 62258
+    ctime7: 65535
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -36874,11 +36874,11 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 0
+    m_Mode: 2
     m_ColorSpace: -1
-    m_NumColorKeys: 5
+    m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  _maxPrizeGradientAmount: 100000
+  _maxPrizeGradientAmount: 1000000
 --- !u!114 &1953386615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62590,6 +62590,8 @@ MonoBehaviour:
   - {fileID: 647519542019892001, guid: 329dd07cfa070d14183c4c73f1e1e8ba, type: 3}
   - {fileID: 647519542019892001, guid: d6cc949e9ad161140929b1773a18f24f, type: 3}
   - {fileID: 647519542019892001, guid: 26b3f328391d70040bd60f82330c48af, type: 3}
+  - {fileID: 647519542019892001, guid: 251f1f712c2bae443a8fc841538cc5df, type: 3}
+  - {fileID: 647519542019892001, guid: ef50661b241ea16429541441998dcedb, type: 3}
   CommonTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
@@ -62610,7 +62612,7 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 647519542019892001, guid: 26b3f328391d70040bd60f82330c48af, type: 3}
+  ForceThisTileNext: {fileID: 647519542019892001, guid: ef50661b241ea16429541441998dcedb, type: 3}
   _forceThisRarity: 0
   _forceGolden: 0
   _rotationDurationS: 10
