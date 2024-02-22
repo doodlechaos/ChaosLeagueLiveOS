@@ -18,12 +18,16 @@ public class AutoNgrokService : MonoBehaviour
     //public string TunnelURL = "";
     //private bool _tunnelURLFound = false;
 
-    private void Awake()
+    private void Start()
     {
-        _pathToNgrokExe = Path.Combine(Application.streamingAssetsPath, "./ngrok-v3-stable-windows-amd64/ngrok");
+        _pathToNgrokExe = Path.Combine(Application.streamingAssetsPath, AppConfig.inst.GetS("PATH_TO_NGROK_EXE"));
 
-        if (!Directory.Exists(_pathToNgrokExe))
+        Debug.Log($"Path to ngrok: {_pathToNgrokExe}"); 
+        if (!File.Exists(_pathToNgrokExe))
+        {
+            Debug.Log("Path to ngrok.exe does not exist"); 
             return;
+        }
 
         StartCoroutine(RestartNgrokTunnel());
 
@@ -32,6 +36,7 @@ public class AutoNgrokService : MonoBehaviour
 
     private IEnumerator RestartNgrokTunnel()
     {
+        Debug.Log("Restarting Ngrok Tunnel"); 
         KillAllNgrokProcesses();
 
         yield return new WaitForSeconds(1);

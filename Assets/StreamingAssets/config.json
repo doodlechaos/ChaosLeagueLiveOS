@@ -94,7 +94,7 @@
     },
     "PATH_TO_NGROK_EXE": {
       "Menu": 4,
-      "Value": "./ngrok-v3-stable-windows-amd64/ngrok",
+      "Value": "./ngrok-v3-stable-windows-amd64/ngrok.exe",
       "UIDisplayText": "Path to NGROK EXE"
     },
     "LOCAL_PC_KEY": {
