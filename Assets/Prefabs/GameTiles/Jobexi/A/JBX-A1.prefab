@@ -58,8 +58,8 @@ MonoBehaviour:
   _invalidOverlapLayers:
     serializedVersion: 2
     m_Bits: 49216
-  _spawnRates: 0a000000030000000100000005000000
-  _targetObsCount: 0
+  _spawnRates: 0a000000030000000200000005000000
+  _targetObsCount: 20
   _chaosObsRoot: {fileID: 2171312231585510354}
   _spawnInterval: 0.5
 --- !u!1 &2359676216558765719
@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 4370802206862934279}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2584, z: 0}
-  m_LocalScale: {x: 9.559257, y: 13.827039, z: 1}
+  m_LocalPosition: {x: 0, y: -0.3232, z: 0}
+  m_LocalScale: {x: 9.559257, y: 14.989893, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5643343794444816032}
@@ -1069,11 +1069,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 88268596640976697, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_text
-      value: JBX-A1
+      value: Chaos Plinko-J
       objectReference: {fileID: 0}
     - target: {fileID: 88268596640976697, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_fontSize
       value: 6.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 88268596640976697, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_margin.x
+      value: -0.57480955
       objectReference: {fileID: 0}
     - target: {fileID: 746487210997908662, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1198,6 +1202,10 @@ PrefabInstance:
     - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _waitForAll
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: _tileNameText
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _tileDurationS
