@@ -2155,11 +2155,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 88268596640976697, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_text
-      value: JBX-A3
+      value: Downward Slope
       objectReference: {fileID: 0}
     - target: {fileID: 88268596640976697, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_fontSize
-      value: 6.15
+      value: 5.55
       objectReference: {fileID: 0}
     - target: {fileID: 746487210997908662, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_LocalScale.x
@@ -2232,6 +2232,22 @@ PrefabInstance:
     - target: {fileID: 5357021141352357062, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039025064665309388, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039025064665309388, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.8881
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039025064665309388, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.833
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039025064665309388, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.2409
       objectReference: {fileID: 0}
     - target: {fileID: 7078481759589445153, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_IsActive
@@ -2308,6 +2324,10 @@ PrefabInstance:
     - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _waitForAll
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: _tileNameText
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7650660916348049875, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: _tileDurationS
