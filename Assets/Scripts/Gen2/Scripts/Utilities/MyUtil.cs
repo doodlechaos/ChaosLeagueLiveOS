@@ -132,7 +132,7 @@ public static class MyUtil
         }
         else if (effect.HasFlag(PBEffect.Multiply))
             label = "x" + value;
-        else if (effect.HasFlag(PBEffect.None))
+        else if (effect == PBEffect.None)
             label = ""; 
 
         return label;
