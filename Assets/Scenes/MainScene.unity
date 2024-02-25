@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1678,12 +1678,256 @@ MonoBehaviour:
     m_MetaData:
     - Mode: 3
       Tension: 0.5
+      m_DistanceToInterpolation:
+      - Distance: 0
+        T: 0
+      - Distance: 0.088160895
+        T: 0.03448276
+      - Distance: 0.2082015
+        T: 0.06896552
+      - Distance: 0.35898513
+        T: 0.10344828
+      - Distance: 0.53933513
+        T: 0.13793103
+      - Distance: 0.7480506
+        T: 0.1724138
+      - Distance: 0.98391545
+        T: 0.20689656
+      - Distance: 1.2457255
+        T: 0.2413793
+      - Distance: 1.532271
+        T: 0.27586207
+      - Distance: 1.8423378
+        T: 0.31034482
+      - Distance: 2.1747158
+        T: 0.3448276
+      - Distance: 2.5281913
+        T: 0.37931034
+      - Distance: 2.9015517
+        T: 0.41379312
+      - Distance: 3.2935894
+        T: 0.44827586
+      - Distance: 3.7030897
+        T: 0.4827586
+      - Distance: 4.1288557
+        T: 0.51724136
+      - Distance: 4.569672
+        T: 0.55172414
+      - Distance: 5.0243454
+        T: 0.5862069
+      - Distance: 5.4916615
+        T: 0.62068963
+      - Distance: 5.9704385
+        T: 0.6551724
+      - Distance: 6.459463
+        T: 0.6896552
+      - Distance: 6.957548
+        T: 0.7241379
+      - Distance: 7.4635096
+        T: 0.7586207
+      - Distance: 7.976152
+        T: 0.79310346
+      - Distance: 8.494299
+        T: 0.82758623
+      - Distance: 9.016772
+        T: 0.86206895
+      - Distance: 9.542402
+        T: 0.8965517
+      - Distance: 10.070018
+        T: 0.9310345
+      - Distance: 10.59847
+        T: 0.9655172
+      - Distance: 11.126594
+        T: 1
     - Mode: 2
       Tension: 0.5
+      m_DistanceToInterpolation:
+      - Distance: 0
+        T: 0
+      - Distance: 0.51842487
+        T: 0.03448276
+      - Distance: 1.0207424
+        T: 0.06896552
+      - Distance: 1.510075
+        T: 0.10344828
+      - Distance: 1.989434
+        T: 0.13793103
+      - Distance: 2.461677
+        T: 0.1724138
+      - Distance: 2.929495
+        T: 0.20689656
+      - Distance: 3.3954363
+        T: 0.2413793
+      - Distance: 3.8618839
+        T: 0.27586207
+      - Distance: 4.3310847
+        T: 0.31034482
+      - Distance: 4.805172
+        T: 0.3448276
+      - Distance: 5.2861853
+        T: 0.37931034
+      - Distance: 5.7760963
+        T: 0.41379312
+      - Distance: 6.276854
+        T: 0.44827586
+      - Distance: 6.7903934
+        T: 0.4827586
+      - Distance: 7.318671
+        T: 0.51724136
+      - Distance: 7.8636885
+        T: 0.55172414
+      - Distance: 8.4275
+        T: 0.5862069
+      - Distance: 9.012241
+        T: 0.62068963
+      - Distance: 9.620114
+        T: 0.6551724
+      - Distance: 10.253417
+        T: 0.6896552
+      - Distance: 10.914528
+        T: 0.7241379
+      - Distance: 11.605909
+        T: 0.7586207
+      - Distance: 12.330099
+        T: 0.79310346
+      - Distance: 13.089708
+        T: 0.82758623
+      - Distance: 13.887408
+        T: 0.86206895
+      - Distance: 14.725934
+        T: 0.8965517
+      - Distance: 15.608063
+        T: 0.9310345
+      - Distance: 16.536613
+        T: 0.9655172
+      - Distance: 17.514448
+        T: 1
     - Mode: 2
       Tension: 0.5
+      m_DistanceToInterpolation:
+      - Distance: 0
+        T: 0
+      - Distance: 0.9863248
+        T: 0.03448276
+      - Distance: 1.9421856
+        T: 0.06896552
+      - Distance: 2.8721967
+        T: 0.10344828
+      - Distance: 3.780327
+        T: 0.13793103
+      - Distance: 4.6698675
+        T: 0.1724138
+      - Distance: 5.5434027
+        T: 0.20689656
+      - Distance: 6.4028234
+        T: 0.2413793
+      - Distance: 7.249344
+        T: 0.27586207
+      - Distance: 8.083537
+        T: 0.31034482
+      - Distance: 8.905382
+        T: 0.3448276
+      - Distance: 9.71432
+        T: 0.37931034
+      - Distance: 10.509304
+        T: 0.41379312
+      - Distance: 11.288855
+        T: 0.44827586
+      - Distance: 12.051111
+        T: 0.4827586
+      - Distance: 12.793884
+        T: 0.51724136
+      - Distance: 13.514698
+        T: 0.55172414
+      - Distance: 14.210833
+        T: 0.5862069
+      - Distance: 14.879366
+        T: 0.62068963
+      - Distance: 15.517216
+        T: 0.6551724
+      - Distance: 16.121172
+        T: 0.6896552
+      - Distance: 16.687946
+        T: 0.7241379
+      - Distance: 17.21423
+        T: 0.7586207
+      - Distance: 17.696754
+        T: 0.79310346
+      - Distance: 18.132416
+        T: 0.82758623
+      - Distance: 18.518442
+        T: 0.86206895
+      - Distance: 18.852757
+        T: 0.8965517
+      - Distance: 19.13466
+        T: 0.9310345
+      - Distance: 19.366388
+        T: 0.9655172
+      - Distance: 19.556553
+        T: 1
     - Mode: 3
       Tension: 0.5
+      m_DistanceToInterpolation:
+      - Distance: -1
+        T: -1
+      - Distance: 0.15840349
+        T: 0.03448276
+      - Distance: 0.28286338
+        T: 0.06896552
+      - Distance: 0.375894
+        T: 0.10344828
+      - Distance: 0.4400097
+        T: 0.13793103
+      - Distance: 0.4777248
+        T: 0.1724138
+      - Distance: 0.49155372
+        T: 0.20689656
+      - Distance: 0.49909675
+        T: 0.2413793
+      - Distance: 0.5254973
+        T: 0.27586207
+      - Distance: 0.5682411
+        T: 0.31034482
+      - Distance: 0.6248138
+        T: 0.3448276
+      - Distance: 0.6927009
+        T: 0.37931034
+      - Distance: 0.7693885
+        T: 0.41379312
+      - Distance: 0.8523617
+        T: 0.44827586
+      - Distance: 0.93910635
+        T: 0.4827586
+      - Distance: 1.0271084
+        T: 0.51724136
+      - Distance: 1.1138531
+        T: 0.55172414
+      - Distance: 1.1968265
+        T: 0.5862069
+      - Distance: 1.2735136
+        T: 0.62068963
+      - Distance: 1.3414011
+        T: 0.6551724
+      - Distance: 1.3979738
+        T: 0.6896552
+      - Distance: 1.4407172
+        T: 0.7241379
+      - Distance: 1.467118
+        T: 0.7586207
+      - Distance: 1.4746612
+        T: 0.79310346
+      - Distance: 1.48849
+        T: 0.82758623
+      - Distance: 1.5262057
+        T: 0.86206895
+      - Distance: 1.5903211
+        T: 0.8965517
+      - Distance: 1.683352
+        T: 0.9310345
+      - Distance: 1.8078113
+        T: 0.9655172
+      - Distance: 1.966215
+        T: 1
     m_Closed: 0
     m_IntData:
       m_Data: []
@@ -6931,13 +7175,13 @@ MonoBehaviour:
   _twitchPubSub: {fileID: 943938167}
   _tileController: {fileID: 5393775865149022912}
   incrementUserId: 1
-  idIncrementor: 0
+  idIncrementor: 1
   testUserId: 
-  testUsername: Jobexi
+  testUsername: RedDiamondREC
   userInput: 1
   nameColor: {r: 0.10588236, g: 0.5294118, b: 1, a: 1}
   randomizeNameColor: 1
-  rewardCost: 1
+  rewardCost: 50
   rewardTitle: Bid
   bits: 25
   isAdmin: 1
@@ -9382,15 +9626,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -27817,15 +28059,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -30739,15 +30979,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -36850,22 +37088,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   _totalPrizeGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.7579201, b: 0.4009434, a: 1}
-    key1: {r: 0.73146665, g: 1, b: 0, a: 1}
-    key2: {r: 0.031372547, g: 1, b: 0.15385231, a: 0}
-    key3: {r: 0.3160377, g: 0.36088553, b: 1, a: 0}
-    key4: {r: 0.19480072, g: 0.13501245, b: 0.6981132, a: 0}
-    key5: {r: 0.45847428, g: 0.16470587, b: 1, a: 0}
-    key6: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
-    key7: {r: 1, g: 1, b: 1, a: 0}
+    key0: {r: 0, g: 0.8906796, b: 1, a: 1}
+    key1: {r: 0.07717762, g: 1, b: 0.07058823, a: 1}
+    key2: {r: 0.6933989, g: 0.14117646, b: 1, a: 0}
+    key3: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 1311
-    ctime2: 2621
-    ctime3: 6554
-    ctime4: 13107
-    ctime5: 26214
-    ctime6: 52428
-    ctime7: 65535
+    ctime1: 1347
+    ctime2: 4040
+    ctime3: 23277
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -36874,9 +37112,9 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 2
+    m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 8
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   _maxPrizeGradientAmount: 100000
 --- !u!114 &1953386615
@@ -43859,15 +44097,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -62567,44 +62803,36 @@ MonoBehaviour:
   _twitchClient: {fileID: 719420099}
   _rebellionController: {fileID: 481457712}
   _goldDistributor: {fileID: 2040148666}
-  _commonRarity: 0.6
-  _rareRarity: 0.3
-  _epicRarity: 0.07
-  _legendaryRarity: 0.03
+  _commonRarity: 0.69
+  _rareRarity: 0.25
+  _epicRarity: 0.05
+  _legendaryRarity: 0.01
   AllRarities:
   - {fileID: 647519542019892001, guid: e7d6d474eb53ee543a42fecfd320c642, type: 3}
   - {fileID: 2605624827304256445, guid: 63656aac225b90f41ab4bf38f06eacb0, type: 3}
-  - {fileID: 1653556322778236169, guid: a969324d934bfff4ab259040b98b6c68, type: 3}
+  - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
+  - {fileID: 9018865158267012433, guid: 1664d906265e7214a846d2921b88bd68, type: 3}
+  - {fileID: 1653556322778236169, guid: 6b729731cc466b647ac5945c3c033a3e, type: 3}
   - {fileID: 6665550754289912462, guid: a65e4a807a11884498a72a8dfac33fd4, type: 3}
   - {fileID: 1329646533652567722, guid: 35154bc0d6248ef40ab951759d9432cb, type: 3}
+  - {fileID: 593247144054054691, guid: 10096080d6afebf4e8ce7b548a8aa7cd, type: 3}
   - {fileID: 3534562126315921842, guid: 91912fc0c1e760e45858c1c661dde2e2, type: 3}
   - {fileID: 5481711066216898309, guid: 2dde99fa00c41fb46b80c6734ec8060f, type: 3}
+  - {fileID: 1251292255789827514, guid: 92c64f292d249114189a7c3c7c7d89f3, type: 3}
   - {fileID: 6275913431883320091, guid: 20b9c01c75b35e548ad271ade1b2253e, type: 3}
-  - {fileID: 6216378128248226811, guid: 77738680a8747f347a4bebe51311c36c, type: 3}
-  - {fileID: 647519542019892001, guid: a18aab497cf1c6841a82ebaa6dd15e94, type: 3}
-  - {fileID: 647519542019892001, guid: 0298f78e094f3014991dc262d74a57b5, type: 3}
-  - {fileID: 647519542019892001, guid: 329dd07cfa070d14183c4c73f1e1e8ba, type: 3}
-  - {fileID: 647519542019892001, guid: d6cc949e9ad161140929b1773a18f24f, type: 3}
-  - {fileID: 647519542019892001, guid: 26b3f328391d70040bd60f82330c48af, type: 3}
-  - {fileID: 647519542019892001, guid: 251f1f712c2bae443a8fc841538cc5df, type: 3}
-  - {fileID: 647519542019892001, guid: ebc91c802175cb14b81ab35ed6fb0081, type: 3}
-  - {fileID: 647519542019892001, guid: 268cd934d63c0bd438fa968107105c49, type: 3}
-  - {fileID: 647519542019892001, guid: ef0c18d02f080aa46995b53c9dc1b172, type: 3}
+  - {fileID: 7650660916348049875, guid: 9e0939458df50962e92fb6d93392bf7b, type: 3}
   CommonTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
   RareTiles:
   - {fileID: 5521807422773572966, guid: 8cb5b5eb8ce99754391feb9ac5e4e005, type: 3}
-  - {fileID: 9018865158267012433, guid: 1664d906265e7214a846d2921b88bd68, type: 3}
-  - {fileID: 593247144054054691, guid: 10096080d6afebf4e8ce7b548a8aa7cd, type: 3}
-  - {fileID: 1251292255789827514, guid: 92c64f292d249114189a7c3c7c7d89f3, type: 3}
-  - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
   EpicTiles:
   - {fileID: 5156241915605114848, guid: 048cbc98047086a4ebada6acf6b82942, type: 3}
   - {fileID: 576390978979572706, guid: 8a9450e89739c48479fdca34e663b374, type: 3}
   - {fileID: 5529546809039867891, guid: 37849db5ac2c9c34e9c8479298f7b521, type: 3}
-  LegendaryTiles:
   - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
+  LegendaryTiles:
+  - {fileID: 6216378128248226811, guid: 77738680a8747f347a4bebe51311c36c, type: 3}
   HoldingPen: {fileID: 1236041840620280661}
   TilesRoot: {fileID: 6209824866414034768}
   LeftTileCenter: {fileID: 3708241436202060553}
@@ -62614,7 +62842,7 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 647519542019892001, guid: ef0c18d02f080aa46995b53c9dc1b172, type: 3}
+  ForceThisTileNext: {fileID: 7650660916348049875, guid: 9e0939458df50962e92fb6d93392bf7b, type: 3}
   _forceThisRarity: 0
   _forceGolden: 0
   _rotationDurationS: 10
@@ -64589,15 +64817,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
