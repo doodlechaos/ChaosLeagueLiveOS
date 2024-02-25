@@ -69,7 +69,7 @@ public class TwitchApi : MonoBehaviour
 
     private void Start()
     {
-        if (!Application.isEditor)
+        if (AppConfig.inst.GetB("AutoAuthorizing"))
             AskForBotAuthorization();
 
 
