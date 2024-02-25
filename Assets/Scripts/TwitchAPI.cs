@@ -69,7 +69,8 @@ public class TwitchApi : MonoBehaviour
 
     private void Start()
     {
-        AskForBotAuthorization();
+        if (!Application.isEditor)
+            AskForBotAuthorization();
 
 
         _cts = new CancellationTokenSource();
