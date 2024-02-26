@@ -6302,9 +6302,9 @@ Transform:
   - {fileID: 3958117705110722027}
   - {fileID: 6495008255651215659}
   - {fileID: 2647251505547869332}
-  - {fileID: 7705725927872479511}
   - {fileID: 2745699299756847182}
   - {fileID: 3712729501977518319}
+  - {fileID: 7705725927872479511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7650660916348049875
@@ -13114,7 +13114,7 @@ MonoBehaviour:
   _deathBallSpawnPoint: {fileID: 2852405923097721674}
   _ringColor: {r: 1, g: 0.9751305, b: 0, a: 1}
   _deathBallWarningColor: {r: 0.8301887, g: 0.20898668, b: 0, a: 1}
-  _deathballPattern: 00000000010000010001000101
+  _deathballPattern: 00000100010001010101010101
 --- !u!1 &7483166950564947456
 GameObject:
   m_ObjectHideFlags: 0
