@@ -969,9 +969,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c301c90f5a0d74495dd4e93a8ffe19, type: 3}
+--- !u!61 &574959384783294049 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2217681019111014017, guid: 84c301c90f5a0d74495dd4e93a8ffe19, type: 3}
+  m_PrefabInstance: {fileID: 1818437891541823712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &634501124062678831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1293184870014681039, guid: 84c301c90f5a0d74495dd4e93a8ffe19, type: 3}
+  m_PrefabInstance: {fileID: 1818437891541823712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5193365139049088087 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5849869928368108727, guid: 84c301c90f5a0d74495dd4e93a8ffe19, type: 3}
   m_PrefabInstance: {fileID: 1818437891541823712}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3673315035682832457
@@ -1041,11 +1051,11 @@ PrefabInstance:
     - target: {fileID: 468798001745206011, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: _bottomCol2D
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 574959384783294049}
     - target: {fileID: 468798001745206011, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: _bottomMeshRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5193365139049088087}
     - target: {fileID: 1079033390000270011, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.18
