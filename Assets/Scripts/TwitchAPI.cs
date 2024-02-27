@@ -160,11 +160,11 @@ public class TwitchApi : MonoBehaviour
         bool isPublic = AppConfig.IsPublicBuild(); 
         string responseType = "code";
         string redirectURI = Secrets.REDIRECT_URI_BOT_AUTH_PRIVATE; 
-       // if (isPublic)
-        //{
+        if (isPublic)
+        {
             responseType = "token";
             redirectURI = Secrets.REDIRECT_URI_BOT_AUTH_PUBLIC;
-       // }
+        }
 
 
         Debug.Log($"Asking for authorization with {responseType} response type"); 
@@ -180,12 +180,9 @@ public class TwitchApi : MonoBehaviour
 
     public string GetOauthURLforInvite(string username)
     {
-        string redirect_uri = $"https://chaosleague-jobexi.ngrok.io/invited";
-        //string authURL = $"https://id.twitch.tv/oauth2/authorize?response_type=code&client_id={AppConfig.GetClientID()}&redirect_uri={redirect_uri}&state={username}";
-        //string authURL = $"https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=cuuw518aprw7ye5ragbonepvfc0o3y&redirect_uri=https://chaosleague-jobexi.ngrok.io/&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls&state={username}";
-        string authURL = $"https://twitch.tv/realjobexi"; //NOT WORKING YET
+        string redirect_uri = $"https://{Secrets.TUNNEL_DOMAIN}/invited";
+        string authURL = $"https://id.twitch.tv/oauth2/authorize?response_type=code&client_id={AppConfig.GetClientID()}&redirect_uri={redirect_uri}&state={username}";
         Debug.Log("OauthURL: " + authURL);
-        Debug.Log($"MADE IT TO LINE 187");
         return authURL;
     }
 
@@ -211,27 +208,25 @@ public class TwitchApi : MonoBehaviour
         string redirectURI = "http://localhost:3001/receiveBotAuthCode";
 
         var request = new HttpRequestMessage(HttpMethod.Post, "https://id.twitch.tv/oauth2/token");
-        //request.Content = new StringContent($"client_id={AppConfig.GetClientID()}&client_secret={AppConfig.GetClientSecret()}&code={code}&grant_type=authorization_code&redirect_uri={redirectURI}", Encoding.UTF8, "application/x-www-form-urlencoded");
-        request.Content = new StringContent($"client_id=cuuw518aprw7ye5ragbonepvfc0o3y&client_secret={AppConfig.GetClientSecret()}&code={code}&grant_type=authorization_code&redirect_uri=https://chaosleague-jobexi.ngrok.io/", Encoding.UTF8, "application/x-www-form-urlencoded");
-         Debug.Log($"MADE IT TO LINE 214");
+        request.Content = new StringContent($"client_id={AppConfig.GetClientID()}&client_secret={AppConfig.GetClientSecret()}&code={code}&grant_type=authorization_code&redirect_uri={redirectURI}", Encoding.UTF8, "application/x-www-form-urlencoded");
+        Debug.Log(request.Content);
         try
         {
             var response = await httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
-            Debug.Log($"MADE IT TO LINE 220");
+            Debug.Log("Here at Line 214");
             var responseBody = await response.Content.ReadAsStringAsync();
 
             Debug.Log("Response body: " + responseBody);
-            Debug.Log($"MADE IT TO LINE 224");
+
             TwitchTokenResponse twitchTokenResponse = JsonConvert.DeserializeObject<TwitchTokenResponse>(responseBody);
-            Debug.Log(twitchTokenResponse);
-            Debug.Log($"MADE IT TO LINE 226");
+
             if (twitchTokenResponse == null)
             {
                 Debug.Log("ERROR: twitch token response is null when trying to trade auth code for user in TwitchAPI");
                 return null;
             }
-            Debug.Log($"MADE IT TO LINE 232");
+            Debug.Log("Here at Line 229");
             return await GetUserByToken(twitchTokenResponse.AccessToken);
 
 

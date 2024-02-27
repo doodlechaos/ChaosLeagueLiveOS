@@ -224,7 +224,7 @@
     },
     "CLIENT_ID_PUBLIC": {
       "Menu": 5,
-      "Value": "w9li5q2jab5t2oru0v0nt67n333j65",
+      "Value": "muomc9f6mg2frvm226osii63qetouk",
       "UIDisplayText": "CLIENT_ID_PUBLIC"
     },
     "CLIENT_ID_PRIVATE": {
@@ -239,7 +239,7 @@
     },
     "CLIENT_SECRET_PRIVATE": {
       "Menu": 5,
-      "Value": "",
+      "Value": "me99kejlilm4otalnzlfperpl7udoe",
       "UIDisplayText": "CLIENT_SECRET_PRIVATE"
     },
     "CLIENT_SECRET_STAGING": {

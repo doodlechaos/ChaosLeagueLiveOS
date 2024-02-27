@@ -165,7 +165,6 @@ public class MyHttpServerV2 : MonoBehaviour
         }
 
         Debug.Log($"In ThreadId: {Thread.CurrentThread.ManagedThreadId} Process HttpRequest: URL=" + request.RawUrl + " Data=" + (rawPostData ?? ""));
-        Debug.Log(parsedPostData);
 
         StringBuilder output = new StringBuilder();
         foreach (string key in parsedPostData.AllKeys)
@@ -181,32 +180,28 @@ public class MyHttpServerV2 : MonoBehaviour
             Debug.Log("Found test username: " + username);
 
             // If we made it all the way here, SUCCESS
-            Debug.Log($"Crazy shit, yo");
-
             return Encoding.UTF8.GetBytes(
-                           $"<h1>Success Clicking Referal Link. Going to Oauth now!</h1>" +
-                           $"<p>The following usernames were found and linked to your Chaos League profile. </p> " +
-                           $"<p>When you chat in the livestream with those accounts, your actions will still be linked to your Chaos League profile. </p>" +
+                        //   $"<h1>Success Clicking Referal Link. Going to Oauth now!</h1>" +
+                        //   $"<p>The following usernames were found and linked to your Chaos League profile. </p> " +
+                        //   $"<p>When you chat in the livestream with those accounts, your actions will still be linked to your Chaos League profile. </p>" +
                         $"<head>" +
                         $"<meta http-equiv=\"refresh\" content=\"0;URL={_twitchApi.GetOauthURLforInvite(username)}\">" +
-                        $"</head>" +
-                                      $"<body>" +
-                                        $"<h2>Redirecting...</h1>" +
-                                        $"<p>You will be redirected to a different page in 4 seconds.</p>" +
-                                      $"</body>"
+                        $"</head>" //+
+                                    //  $"<body>" +
+                                    //    $"<h2>Redirecting...</h1>" +
+                                    //    $"<p>You will be redirected to a different page in 4 seconds.</p>" +
+                                    //  $"</body>"
                         );
 
-            
         }
-        if (request.Url.LocalPath == "/")
+        if (request.Url.LocalPath == "/invited")
         {
-            Debug.Log($"MADE IT TO LINE 202");
             try
             {
                 string code = request.QueryString.Get("code");
                 string referrer = request.QueryString.Get("state");
                 Debug.Log($"starting invite with code: [{code}] and referrer: [{referrer}]");
-
+                Debug.Log("Here at Line 204");
                 //If the name of the referrer was not passed through correctly, just redirect them
                 if (string.IsNullOrEmpty(referrer))
                 {
@@ -215,17 +210,17 @@ public class MyHttpServerV2 : MonoBehaviour
 
                             $"<head>" +
                             $"<p> Referrer name not found </p>" + 
-                            $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/realjobexi\">" +
+                            $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/{Secrets.CHANNEL_NAME}\">" +
                             $"</head>" //+
 
                         );
                 }
-
+                Debug.Log("Here at Line 218");
                 var invitedUser = await TwitchApi.TradeAuthCodeForUser(code);
-
+                Debug.Log("Here at Line 220");
                 Debug.Log("invited user: " + invitedUser.Login);
                 var referrerUser = await TwitchApi.GetUserByUsername(referrer);
-
+                Debug.Log("Here at Line 223");
                 if (referrerUser != null)
                 {
                     Debug.Log("referrerUser user: " + referrerUser.Login);
@@ -236,23 +231,24 @@ public class MyHttpServerV2 : MonoBehaviour
                     return Encoding.UTF8.GetBytes(
 
                                 $"<head>" +
-                                $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/realjobexi\">" +
+                                $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/{Secrets.CHANNEL_NAME}\">" +
                                 $"</head>" //+
 
                                 );
                 }
-
+                Debug.Log("Here at Line 239");
                 // Show quick tiny message that they failed to find the referring user, then redirect them to the stream
                 return Encoding.UTF8.GetBytes(
 
                             $"<head>" +
                             $"<p>Failed to find referring user: [{referrer}]</p>" +
-                            $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/realjobexi\">" +
+                            $"<meta http-equiv=\"refresh\" content=\"0;URL=https://www.twitch.tv/{Secrets.CHANNEL_NAME}\">" +
                             $"</head>" //+
 
                             );
                 
             }
+            
             catch (Exception e)
             {
                 Debug.Log("Caught error in httpserver invite: " + e.Message);
