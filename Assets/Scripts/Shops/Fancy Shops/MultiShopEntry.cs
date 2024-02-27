@@ -16,66 +16,44 @@ public class MultiShopEntry : ShopEntry
 
 
     private Gradient _gradient;
-    private Color _purchaseColor;
+    private Color _purchaseColor1;
+    private Color _purchaseColor2;
        
-    public void InitEntry1(int tier, bool isGolden, float goldenDiscount)
+    public void InitEntry(Gradient gradient, Color color1, Color color2, int Tier)
     {
 
-
-        _bubbleText.SetText("Text Color!");
-        Color color;
-        int randomPrice;
-
-        color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)); //can be anything
-        randomPrice = Mathf.RoundToInt(Random.Range(4, 7) * 1500);
-  
-        if (isGolden)
-            randomPrice = Mathf.RoundToInt(randomPrice * (1 - goldenDiscount));
-
-        InitEntryBase(randomPrice, BuyCommands);
-
-        _bubbleText.color = color;
-        _purchaseColor = color;
-
-    }
-
-    public void InitEntry2(int tier, bool isGolden, float goldenDiscount)
-    {
-
-        Color color;
-        int randomPrice = 1;
-        color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)); //can be anything
-        randomPrice = randomPrice + Mathf.RoundToInt(Random.Range(7, 20) * 1500);
-  
-        if (isGolden)
-            randomPrice = Mathf.RoundToInt(randomPrice * (1 - goldenDiscount));
-
-        InitEntryBase(randomPrice, BuyCommands);
-
-        color = MyUtil.SetColorSaveAlpha(color, _bubbleContainer.color);
-
-        _purchaseColor = color;
-
-        _bubbleContainer.color = color;
-        _bubbleText.SetText("");
-
-        color.a = 0;
-        _bubbleStalk.startColor = color;
-        color.a = 1;
-        _bubbleStalk.endColor = color;
-    }
-
-    public void InitEntry3(Gradient gradient, int tier, int goldCost)
-    {
-        InitEntryBase(goldCost, BuyCommands);
-
+        InitMultiEntryBase(50000, BuyCommands);
+        float trailTime;
         _gradient = gradient;
         _demoTrail.colorGradient = gradient;
 
-        float trailTime;
-        trailTime = AppConfig.inst.GetF("TrailTierThreeTime");
-      
+        trailTime = AppConfig.inst.GetF(1.25);
+
         _demoTrail.time = trailTime;
+
+        if (Tier == 1)
+        {
+            _bubbleText.SetText("Text Color!"); 
+        }
+        else
+        {
+            _bubbleText.SetText("Bubble Color!");
+        }
+
+        _bubbleText.color = color1;
+        _purchaseColor1 = color1;
+         
+        color2 = MyUtil.SetColorSaveAlpha(color2, _bubbleContainer.color);
+
+        _purchaseColor2 = color2;
+
+        _bubbleContainer.color = color2;
+  
+        color2.a = 0;
+        _bubbleStalk.startColor = color2;
+        color2.a = 1;
+        _bubbleStalk.endColor = color2;
+
     }
 
     public override void ReceivePlayer(PlayerBall pb)
@@ -98,6 +76,17 @@ public class MultiShopEntry : ShopEntry
         string json = GradientSerializer.SerializeGradient(_gradient);
         Debug.Log($"Setting {pb.Ph.pp.TwitchUsername} player JSON: {json}");
         pb.Ph.pp.TrailGradientJSON = json;
+
+        pb.Ph.SetCustomizationsFromPP();
+
+        string hexString1 = MyUtil.ColorToHexString(_purchaseColor1);
+        pb.Ph.pp.SpeechBubbleTxtHex = hexString1;
+
+        pb.Ph.SetCustomizationsFromPP();
+
+        string hexString2 = MyUtil.ColorToHexString(_purchaseColor2);
+        pb.Ph.pp.SpeechBubbleFillHex = hexString2;
+
         pb.Ph.SetCustomizationsFromPP();
 
         StartCoroutine(PurchaseAnimation(pb));

@@ -13,12 +13,27 @@ public class MultiShop : Game
 
     public override void OnTilePreInit()
     {
-        _entries[0].InitEntry1(1, _gt.IsGolden, _goldenDiscount);
-        _entries[1].InitEntry2(2, _gt.IsGolden, _goldenDiscount);
-        _entries[2].InitEntry3(GetRandomGradient(4), 3, (_gt.IsGolden) ? 100_000 : 125_000);
+        Gradient newgradient;
+        Color newcolor1;
+        Color newcolor2;
+        newgradient = GetRandomGradient(4);
+        newcolor1 = GetNewColor();
+        newcolor2 = GetNewColor();
+
+        _entries[0].InitEntry(newgradient, newcolor1, newcolor2, 1);
+        _entries[1].InitEntry(newgradient, newcolor1, newcolor2, 2);
+        _entries[2].InitEntry(newgradient, newcolor1, newcolor2, 3);
 
         foreach (var entry in _entries)
             entry.HideCommandText(); 
+    }
+    
+    private Color GetNewColor()
+    {
+        Color colorBase;
+        colorBase = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)); //can be anything
+
+        return colorBase;
     }
 
     private Gradient GetRandomGradient(int numColors)
@@ -82,9 +97,9 @@ public class MultiShop : Game
 
     public override void ProcessGameplayCommand(string messageId, TwitchClient twitchClient, PlayerHandler ph, string msg, string rawEmotesRemoved)
     {
-        foreach(var entry in _entries)
+        foreach (var entry in _entries)
         {
-            foreach(string buyCommand in entry.BuyCommands)
+            foreach (string buyCommand in entry.BuyCommands)
             {
                 if (msg.ToLower().StartsWith(buyCommand))
                 {

@@ -10,7 +10,7 @@ public class TrailShop : Game
     [SerializeField] private List<TrailShopEntry> _entries;
 
 
-    [SerializeField] private int _buyTime = 45; 
+    [SerializeField] private int _buyTime = 45;
 
 
     public override void OnTilePreInit()
@@ -20,7 +20,7 @@ public class TrailShop : Game
         _entries[2].InitEntry(GetRandomGradient(3), 3, (_gt.IsGolden) ? 75000 : 100_000);
 
         foreach (var entry in _entries)
-            entry.HideCommandText(); 
+            entry.HideCommandText();
     }
 
     private Gradient GetRandomGradient(int numColors)
@@ -71,8 +71,8 @@ public class TrailShop : Game
 
     public IEnumerator KillAllAfterDelay(int secDelay)
     {
-        yield return new WaitForSeconds(secDelay); 
-        _gt.EliminatePlayers(_gt.AlivePlayers.ToList(), false); 
+        yield return new WaitForSeconds(secDelay);
+        _gt.EliminatePlayers(_gt.AlivePlayers.ToList(), false);
     }
 
 
@@ -84,9 +84,9 @@ public class TrailShop : Game
 
     public override void ProcessGameplayCommand(string messageId, TwitchClient twitchClient, PlayerHandler ph, string msg, string rawEmotesRemoved)
     {
-        foreach(var entry in _entries)
+        foreach (var entry in _entries)
         {
-            foreach(string buyCommand in entry.BuyCommands)
+            foreach (string buyCommand in entry.BuyCommands)
             {
                 if (msg.ToLower().StartsWith(buyCommand))
                 {
@@ -107,7 +107,7 @@ public class TrailShop : Game
             }
 
         }
-         
+
     }
 
 
