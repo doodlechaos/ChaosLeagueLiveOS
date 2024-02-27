@@ -84,19 +84,19 @@ public class BucketSwitcherGame : Game
 
     private void SwitchEffectors()
     {
-        _currState++;
-        if (_currState >= 4)
-            _currState = 0;
+        _currState = (_currState + 1) % 4;
 
         for (int i = 0; i < _gt.Effectors.Length; i++)
         {
             PBEffector effector = _gt.Effectors[i];
 
             int workState = _currState;
-            if (i >= _gt.Effectors.Length / 2)
-                workState++;
-            if (workState >= 4)
-                workState = 0;
+
+            int rowIndex = i/8;
+            workState += rowIndex;
+
+            // Wrap the value to be 0, 1, 2 or 3
+            workState = workState % 4;
 
             if (i % 4 == workState)
             {
@@ -152,8 +152,10 @@ public class BucketSwitcherGame : Game
         for (int i = 0; i < _gt.Effectors.Length; i++)
         {
             int workState = 0;
-            if (i >= _gt.Effectors.Length / 2)
-                workState++;
+            int rowIndex = i/8;
+            workState += rowIndex;
+
+            workState = workState % 4;
 
             PBEffector effector = _gt.Effectors[i];
             effector.ResetValue(false);
