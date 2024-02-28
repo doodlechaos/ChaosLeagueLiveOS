@@ -437,6 +437,12 @@ public class BidHandler : MonoBehaviour
     }
     public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType, string redemptionID)
     {
+        if (redemptionID == null)
+        {
+            BidRedemption(ph, bidAmount, bidType);
+            return;
+        }
+
         string TwitchID = ph.pp.TwitchID;
 
         List<string> redemptionsIds;
