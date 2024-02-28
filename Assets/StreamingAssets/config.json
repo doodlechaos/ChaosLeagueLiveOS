@@ -254,7 +254,7 @@
     },
     "AutoAuthorizing": {
       "Menu": 4,
-      "Value": false,
+      "Value": true,
       "UIDisplayText": "Open Link to Twitch at startup"
     }
   },
