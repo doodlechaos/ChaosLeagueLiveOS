@@ -121,7 +121,7 @@ public static class MyUtil
     {
         string label = AbbreviateNum3Char((int)value);
 
-        if (effect.HasFlag(PBEffect.Subtract))
+        if (AppConfig.inst.GetB("ShowSubstractSign") && effect.HasFlag(PBEffect.Subtract))
             label = "-" + label;
         else if (effect.HasFlag(PBEffect.Zero))
         {
