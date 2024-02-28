@@ -11,6 +11,7 @@ public class Crown : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _crownMeshRenderer;
     [SerializeField] private MeshRenderer _gemsMeshRenderer; 
+    [SerializeField] private MeshRenderer _fourthMeshRenderer; 
 
     [SerializeField] private Color _defaultCrownBase;
 
@@ -64,6 +65,7 @@ public class Crown : MonoBehaviour
     public void UpdateCustomizations(List<Color> colors)
     {
         _gemsMeshRenderer.gameObject.SetActive(false);
+        _fourthMeshRenderer.gameObject.SetActive(false);
 
         //Default
         if (colors.Count <= 0)
@@ -77,21 +79,35 @@ public class Crown : MonoBehaviour
             SetBaseColor(colors.First(), 0);
             SetTrimColor(colors.First(), 0);
             return;
+
+
         }
         //If 2 colors set, set the trim different
         else if (colors.Count == 2)
         {
+
             SetBaseColor(colors[0], 0);
             SetTrimColor(colors[1], 0);
             return;
         }
         //If 3 colors set
-        else if (colors.Count >= 3)
+        else if (colors.Count == 3)
+        {
+
+            SetBaseColor(colors[0], 25);
+            SetTrimColor(colors[1], 25);
+            SetGemsColor(colors[2], 25);
+            _gemsMeshRenderer.gameObject.SetActive(true);
+            return;
+        }
+        //If 4 Colors Set
+        else if (colors.Count >= 4)
         {
             SetBaseColor(colors[0], 25);
             SetTrimColor(colors[1], 25);
             SetGemsColor(colors[2], 25);
             _gemsMeshRenderer.gameObject.SetActive(true);
+            _fourthMeshRenderer.gameObject.SetActive(true);
             return;
         }
     }

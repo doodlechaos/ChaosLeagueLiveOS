@@ -44578,11 +44578,11 @@ MonoBehaviour:
   _columns: 10
   _cellMargin: 0.95
   _materials:
-  - {fileID: 2100000, guid: a845167486c4aaa4f8c283cc6c203901, type: 2}
-  - {fileID: 2100000, guid: 7672adc4d5386014e9f4961451cb1057, type: 2}
-  - {fileID: 2100000, guid: 6b85b1870a069764eba525da2b47d28f, type: 2}
-  - {fileID: 2100000, guid: 62fbac97c44701148abcfc90a187db84, type: 2}
-  - {fileID: 2100000, guid: eaf26f1465ae9414598597e675caa348, type: 2}
+  - {fileID: 2100000, guid: b9b24a3b659be834fbd1dd6bbcb83f04, type: 2}
+  - {fileID: 2100000, guid: ed6b23f410374694bbf05483d348691c, type: 2}
+  - {fileID: 2100000, guid: 9a63441bfdf9dbb4b874f2c8cec6e8f7, type: 2}
+  - {fileID: 2100000, guid: 62a41b3c0a8644e43bcce5e9903df83a, type: 2}
+  - {fileID: 2100000, guid: e992c38c79768de4c80e733656fb441d, type: 2}
   _brickLabelTextColor: {r: 1, g: 1, b: 1, a: 1}
   ExponentScale: 1
 --- !u!224 &666319639153304078
@@ -62591,6 +62591,7 @@ MonoBehaviour:
   - {fileID: 647519542019892001, guid: ebc91c802175cb14b81ab35ed6fb0081, type: 3}
   - {fileID: 647519542019892001, guid: 268cd934d63c0bd438fa968107105c49, type: 3}
   - {fileID: 647519542019892001, guid: ef0c18d02f080aa46995b53c9dc1b172, type: 3}
+  - {fileID: 647519542019892001, guid: 21a79d2f89d1c1b4ab7f9780c760bf79, type: 3}
   CommonTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
@@ -62604,9 +62605,10 @@ MonoBehaviour:
   - {fileID: 5156241915605114848, guid: 048cbc98047086a4ebada6acf6b82942, type: 3}
   - {fileID: 576390978979572706, guid: 8a9450e89739c48479fdca34e663b374, type: 3}
   - {fileID: 5529546809039867891, guid: 37849db5ac2c9c34e9c8479298f7b521, type: 3}
+  - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
   - {fileID: 5156241915605114848, guid: 7adb0ced0a2c36d43887829a8d90d55c, type: 3}
   LegendaryTiles:
-  - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
+  - {fileID: 461252091043616422, guid: e0a2e9357f3dd904cadf16f00e6164fa, type: 3}
   HoldingPen: {fileID: 1236041840620280661}
   TilesRoot: {fileID: 6209824866414034768}
   LeftTileCenter: {fileID: 3708241436202060553}
@@ -62616,8 +62618,8 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 5156241915605114848, guid: 7adb0ced0a2c36d43887829a8d90d55c, type: 3}
-  _forceThisRarity: 2
+  ForceThisTileNext: {fileID: 461252091043616422, guid: e0a2e9357f3dd904cadf16f00e6164fa, type: 3}
+  _forceThisRarity: 3
   _forceGolden: 0
   _rotationDurationS: 10
   _animeTileCountMin: 10
