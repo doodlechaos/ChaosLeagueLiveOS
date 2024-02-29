@@ -159,6 +159,10 @@ public class BucketSwitcherGame : Game
 
             PBEffector effector = _gt.Effectors[i];
             effector.ResetValue(false);
+
+            if (effector.GetEffect().hasFlag(PBEffect.Subtract))
+                effector.MultiplyCurrValue(2.0f);
+
             if (i % 4 == 0)
                 effector.SetEffect(PBEffect.Subtract | PBEffect.Explode);
             else
