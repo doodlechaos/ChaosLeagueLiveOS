@@ -105,15 +105,12 @@ public class BucketSwitcherGame : Game
 
                 GameObject bottom = effector.transform.Find("Bottom").gameObject;
 
-                BoxCollider2D collider = bottom.GetComponent<BoxCollider2D>();
-                if (collider != null)
-                    collider.enabled = true;
+                ResetBottomCollider(effector);
 
                 Vector3 position = bottom.transform.position;
                 position.z = 0.54f;
 
-                BottomTarget target = new BottomTarget(bottom, position, 0.05f);
-                _bottomTargets.Add(target);
+                AddInAnimationList(bottom, position);
             }
             else if (effector.GetEffect().HasFlag(PBEffect.Subtract))
             {
@@ -122,15 +119,11 @@ public class BucketSwitcherGame : Game
 
                 GameObject bottom = effector.transform.Find("Bottom").gameObject;
 
-                BoxCollider2D collider = bottom.GetComponent<BoxCollider2D>();
-                if (collider != null)
-                    collider.enabled = false;
+                ResetBottomCollider(effector);
 
                 Vector3 position = bottom.transform.position;
                 position.z = 1.2f;
-
-                BottomTarget target = new BottomTarget(bottom, position, 0.05f);
-                _bottomTargets.Add(target);
+                AddInAnimationList(bottom, position);
             }
         }
     }
@@ -160,17 +153,36 @@ public class BucketSwitcherGame : Game
             PBEffector effector = _gt.Effectors[i];
             effector.ResetValue(false);
 
-            if (effector.GetEffect().hasFlag(PBEffect.Subtract))
-                effector.MultiplyCurrValue(2.0f);
-
-            if (i % 4 == 0)
+            if (i % 4 == workState)
                 effector.SetEffect(PBEffect.Subtract | PBEffect.Explode);
             else
                 effector.SetEffect(PBEffect.Add);
+
+            ResetBottomCollider(effector);
         }
 
         _timer.SetText(MyUtil.GetMinuteSecString(0));
         _bottomTargets.Clear();
         IsGameStarted = false;
+    }
+
+    private void ResetBottomCollider(GameObject effector)
+    {
+        GameObject bottom = effector.transform.Find("Bottom").gameObject
+
+        BoxCollider2D collider = bottom.GetComponent<BoxCollider2D>();
+        if (collider = null)
+            return;
+
+        if (effector.GetEffect().HasFlag(PBEffect.Add))
+            collider.enabled = false;
+        else if (effector.GetEffect().HasFlag(PBEffect.Subtract))
+            collider.enabled = true;
+    }
+
+    private void AddInAnimationList(bottom, target)
+    {
+        BottomTarget target = new BottomTarget(bottom, target, 0.05f);
+        _bottomTargets.Add(target);
     }
 }
