@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using System.Text;
 using System;
+using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections;
@@ -40,8 +41,11 @@ public class SpotifyDJ : MonoBehaviour
 
     private Coroutine _animateTextCoroutine; 
 
+    [HideInInspector] public string _state {get; private set;}
+
     private void Start()
     {
+        GenerateRandomState();
         _cts = new CancellationTokenSource();
         _expirationTime = DateTime.Now.AddHours(9999); //Temp until the token parse sets this value
         _songDisplayText.color = _songDisplayText.color.WithAlpha(0); 
@@ -49,6 +53,7 @@ public class SpotifyDJ : MonoBehaviour
         _ = PollCurrentSongNameV2(_cts);
         _ = AutoRefreshToken();
     }
+
     private void OnValidate()
     {
         if (_testAuthorize)
@@ -136,15 +141,15 @@ public class SpotifyDJ : MonoBehaviour
         }
     }
 
-
     public void GetAuthToken()
     {
         string clientID = AppConfig.inst.GetS("SpotifyClientID");
         string redirectUri = "http://localhost:3001/spotifyToken"; //$"{AppConfig.inst.GetS("HostToListenOn")}:{AppConfig.inst.GetS("localHostPort")}{AppConfig.inst.GetS("SpotifyRedirectPath")}";
         Debug.Log("redirectUri: " + redirectUri);
         string encodedRedirectUri = WebUtility.UrlEncode(redirectUri);
+        string encodedState = WebUtility.UrlEncode(_state);
 
-        var authorizationRequest = $"https://accounts.spotify.com/authorize?response_type=code&client_id={clientID}&redirect_uri={encodedRedirectUri}&scope=app-remote-control user-modify-playback-state user-read-currently-playing user-read-playback-state";
+        var authorizationRequest = $"https://accounts.spotify.com/authorize?response_type=code&client_id={clientID}&redirect_uri={encodedRedirectUri}&scope=app-remote-control user-modify-playback-state user-read-currently-playing user-read-playback-state&state={encodedState}";
         Debug.Log("authorization Request: " + authorizationRequest);
         Application.OpenURL(authorizationRequest);
     }
@@ -183,7 +188,6 @@ public class SpotifyDJ : MonoBehaviour
             _isRefreshing = false;
         }
     }
-
 
     public async Task ParseTokenResponse(TokenResponse tokenResponse)
     {
@@ -321,6 +325,13 @@ public class SpotifyDJ : MonoBehaviour
     private void OnApplicationQuit()
     {
         _cts?.Cancel(); 
+    }
+
+    private void GenerateRandomState()
+    {
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        _state = new string(Enumerable.Repeat(chars, 64)
+                .Select(s => s[UnityEngine.Random.Range(0, s.Length)]).ToArray());
     }
 }
 
