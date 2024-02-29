@@ -166,9 +166,9 @@ public class BucketSwitcherGame : Game
         IsGameStarted = false;
     }
 
-    private void ResetBottomCollider(GameObject effector)
+    private void ResetBottomCollider(PBEffector effector)
     {
-        GameObject bottom = effector.transform.Find("Bottom").gameObject
+        GameObject bottom = effector.transform.Find("Bottom").gameObject;
 
         BoxCollider2D collider = bottom.GetComponent<BoxCollider2D>();
         if (collider = null)
@@ -180,9 +180,9 @@ public class BucketSwitcherGame : Game
             collider.enabled = true;
     }
 
-    private void AddInAnimationList(bottom, target)
+    private void AddInAnimationList(GameObject bottom, Vector3 target)
     {
-        BottomTarget target = new BottomTarget(bottom, target, 0.05f);
-        _bottomTargets.Add(target);
+        BottomTarget bottomTarget = new BottomTarget(bottom, target, 0.05f);
+        _bottomTargets.Add(bottomTarget);
     }
 }
