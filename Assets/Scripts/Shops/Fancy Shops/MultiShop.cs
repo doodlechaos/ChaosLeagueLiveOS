@@ -5,22 +5,35 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class TrailShop : Game
+public class MultiShop : Game
 {
-    [SerializeField] private List<TrailShopEntry> _entries;
-
-
-    [SerializeField] private int _buyTime = 45; 
-
+    [SerializeField] private List<MultiShopEntry> _entries;
+    [SerializeField] private int _buyTime = 45;
+    [SerializeField] private float _goldenDiscount = 0.25f;
 
     public override void OnTilePreInit()
     {
-        _entries[0].InitEntry(GetRandomGradient(1), 1, (_gt.IsGolden) ? 750 : 1_000);
-        _entries[1].InitEntry(GetRandomGradient(2), 2, (_gt.IsGolden) ? 7500 : 10_000);
-        _entries[2].InitEntry(GetRandomGradient(3), 3, (_gt.IsGolden) ? 75000 : 100_000);
+        Gradient newgradient;
+        Color newcolor1;
+        Color newcolor2;
+        newgradient = GetRandomGradient(4);
+        newcolor1 = GetNewColor();
+        newcolor2 = GetNewColor();
+
+        _entries[0].InitEntry(newgradient, newcolor1, newcolor2, 1);
+        _entries[1].InitEntry(newgradient, newcolor1, newcolor2, 2);
+        _entries[2].InitEntry(newgradient, newcolor1, newcolor2, 3);
 
         foreach (var entry in _entries)
             entry.HideCommandText(); 
+    }
+    
+    private Color GetNewColor()
+    {
+        Color colorBase;
+        colorBase = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)); //can be anything
+
+        return colorBase;
     }
 
     private Gradient GetRandomGradient(int numColors)
@@ -84,9 +97,9 @@ public class TrailShop : Game
 
     public override void ProcessGameplayCommand(string messageId, TwitchClient twitchClient, PlayerHandler ph, string msg, string rawEmotesRemoved)
     {
-        foreach(var entry in _entries)
+        foreach (var entry in _entries)
         {
-            foreach(string buyCommand in entry.BuyCommands)
+            foreach (string buyCommand in entry.BuyCommands)
             {
                 if (msg.ToLower().StartsWith(buyCommand))
                 {

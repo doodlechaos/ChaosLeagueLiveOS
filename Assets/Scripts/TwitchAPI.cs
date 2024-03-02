@@ -209,12 +209,12 @@ public class TwitchApi : MonoBehaviour
 
         var request = new HttpRequestMessage(HttpMethod.Post, "https://id.twitch.tv/oauth2/token");
         request.Content = new StringContent($"client_id={AppConfig.GetClientID()}&client_secret={AppConfig.GetClientSecret()}&code={code}&grant_type=authorization_code&redirect_uri={redirectURI}", Encoding.UTF8, "application/x-www-form-urlencoded");
-
+        Debug.Log(request.Content);
         try
         {
             var response = await httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
-
+            Debug.Log("Here at Line 214");
             var responseBody = await response.Content.ReadAsStringAsync();
 
             Debug.Log("Response body: " + responseBody);
@@ -226,7 +226,7 @@ public class TwitchApi : MonoBehaviour
                 Debug.Log("ERROR: twitch token response is null when trying to trade auth code for user in TwitchAPI");
                 return null;
             }
-
+            Debug.Log("Here at Line 229");
             return await GetUserByToken(twitchTokenResponse.AccessToken);
 
 

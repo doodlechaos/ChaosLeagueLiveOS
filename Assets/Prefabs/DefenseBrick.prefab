@@ -234,7 +234,7 @@ MonoBehaviour:
   BoxCollider2D: {fileID: 57386570527565304}
   MeshRenderer: {fileID: 8400407642719341748}
   _displayText: {fileID: 417533774063594619}
-  _goldOreMaterial: {fileID: 2100000, guid: bb51a90ffd3be8c4eb4a5925e1bed42d, type: 2}
+  _goldOreMaterial: {fileID: 2100000, guid: ba648f83e2483824884adf130bb3e4c3, type: 2}
 --- !u!23 &8400407642719341748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eaf26f1465ae9414598597e675caa348, type: 2}
+  - {fileID: 2100000, guid: e992c38c79768de4c80e733656fb441d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
