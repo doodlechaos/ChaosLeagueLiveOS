@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce816d73b27d4a44683fa0864b78e6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gt: {fileID: 5156241915605114848}
   IsGameStarted: 0
   DoneWithGameplay: 0
+  _gt: {fileID: 5156241915605114848}
   _entries:
   - {fileID: 3507578811014104238}
   - {fileID: 8392808056722611757}

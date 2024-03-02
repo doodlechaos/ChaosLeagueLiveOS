@@ -201,7 +201,7 @@ public class MyHttpServerV2 : MonoBehaviour
                 string code = request.QueryString.Get("code");
                 string referrer = request.QueryString.Get("state");
                 Debug.Log($"starting invite with code: [{code}] and referrer: [{referrer}]");
-                Debug.Log("Here at Line 204");
+
                 //If the name of the referrer was not passed through correctly, just redirect them
                 if (string.IsNullOrEmpty(referrer))
                 {
@@ -215,12 +215,12 @@ public class MyHttpServerV2 : MonoBehaviour
 
                         );
                 }
-                Debug.Log("Here at Line 218");
+
                 var invitedUser = await TwitchApi.TradeAuthCodeForUser(code);
-                Debug.Log("Here at Line 220");
+
                 Debug.Log("invited user: " + invitedUser.Login);
                 var referrerUser = await TwitchApi.GetUserByUsername(referrer);
-                Debug.Log("Here at Line 223");
+
                 if (referrerUser != null)
                 {
                     Debug.Log("referrerUser user: " + referrerUser.Login);
@@ -236,7 +236,7 @@ public class MyHttpServerV2 : MonoBehaviour
 
                                 );
                 }
-                Debug.Log("Here at Line 239");
+
                 // Show quick tiny message that they failed to find the referring user, then redirect them to the stream
                 return Encoding.UTF8.GetBytes(
 
@@ -248,7 +248,6 @@ public class MyHttpServerV2 : MonoBehaviour
                             );
                 
             }
-            
             catch (Exception e)
             {
                 Debug.Log("Caught error in httpserver invite: " + e.Message);

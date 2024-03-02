@@ -95,7 +95,11 @@ public class AppConfig
 
     public static string GetClientSecret()
     {
-     return inst.GetS("CLIENT_SECRET_PRIVATE");
+        string API_MODE = inst.GetS("API_MODE");
+        if (API_MODE == "STAGING")
+            return inst.GetS("CLIENT_SECRET_STAGING");
+        else //(API_MODE == "PRIVATE")
+            return inst.GetS("CLIENT_SECRET_PRIVATE");
     }
 
 
