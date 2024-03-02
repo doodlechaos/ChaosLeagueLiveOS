@@ -131,7 +131,79 @@ public class DefaultDefenseV2 : MonoBehaviour
                 }
             }
         }
+        pointsPerBrick = (pointsPerBrick / 10);
 
+        TI_Count = 0;
+        for (int col = 0; col < _columns; col++)
+        {
+            for (int row = 0; row < _rows; row++)
+            {
+                DefenseBrick db = _defaultDefenseBricks[col, row];
+                if (db.GetBrickType() == DefenseBrickType.Diamond)
+                {
+                    TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(pointsPerBrick), pointsPerBrick, ph, db, 0.06f, Color.white, ph.PfpTexture);
+                    TI_Count++;
+
+                    if (TI_Count >= totalAmount)
+                        return;
+                }
+            }
+        }
+        pointsPerBrick = (pointsPerBrick / 10);
+
+        TI_Count = 0;
+        for (int col = 0; col < _columns; col++)
+        {
+            for (int row = 0; row < _rows; row++)
+            {
+                DefenseBrick db = _defaultDefenseBricks[col, row];
+                if (db.GetBrickType() == DefenseBrickType.Iron)
+                {
+                    TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(pointsPerBrick), pointsPerBrick, ph, db, 0.06f, Color.white, ph.PfpTexture);
+                    TI_Count++;
+
+                    if (TI_Count >= totalAmount)
+                        return;
+                }
+            }
+        }
+        pointsPerBrick = (pointsPerBrick / 10);
+
+        TI_Count = 0;
+        for (int col = 0; col < _columns; col++)
+        {
+            for (int row = 0; row < _rows; row++)
+            {
+                DefenseBrick db = _defaultDefenseBricks[col, row];
+                if (db.GetBrickType() == DefenseBrickType.Coal)
+                {
+                    TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(pointsPerBrick), pointsPerBrick, ph, db, 0.06f, Color.white, ph.PfpTexture);
+                    TI_Count++;
+
+                    if (TI_Count >= totalAmount)
+                        return;
+                }
+            }
+        }
+    
+        pointsPerBrick = (pointsPerBrick / 10);
+
+        TI_Count = 0;
+        for (int col = 0; col<_columns; col++)
+        {
+            for (int row = 0; row<_rows; row++)
+            {
+                DefenseBrick db = _defaultDefenseBricks[col, row];
+                if (db.GetBrickType() == DefenseBrickType.Dirt)
+                {
+                    TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(pointsPerBrick), pointsPerBrick, ph, db, 0.06f, Color.white, ph.PfpTexture);
+                    TI_Count++;
+
+                    if (TI_Count >= totalAmount)
+                        return;
+                }
+            }
+        }
     }
 
     public void GoldBreakSignal(PlayerBall pb, Vector3 pos, int coins)

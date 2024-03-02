@@ -62,7 +62,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 49216
   _spawnRates: 0a000000030000000100000005000000
-  _targetObsCount: 0
+  _targetObsCount: 15
   _chaosObsRoot: {fileID: 2171312231585510354}
   _spawnInterval: 0.5
 --- !u!1 &2359676216558765719

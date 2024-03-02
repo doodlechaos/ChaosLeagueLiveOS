@@ -12,7 +12,7 @@ using TwitchLib.Unity;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 using SubscriptionPlan = TwitchLib.PubSub.Enums.SubscriptionPlan;
-public enum BidType { ChannelPoints, Bits, NewPlayerBonus, NewSubBonus}
+public enum BidType { ChannelPoints, Bits, NewPlayerBonus, NewSubBonus }
 public class TwitchPubSub : MonoBehaviour
 {
     [SerializeField] private GameManager _gm;
@@ -28,7 +28,7 @@ public class TwitchPubSub : MonoBehaviour
     public void Init(string channelID, string botAccessToken)
     {
         if (_pubSub != null)
-            _pubSub.Disconnect(); 
+            _pubSub.Disconnect();
 
         // Create new instance of PubSub Client
         _pubSub = new PubSub();
@@ -40,7 +40,7 @@ public class TwitchPubSub : MonoBehaviour
         _pubSub.OnRewardRedeemed += OnRewardRedeemed;
         _pubSub.OnBitsReceivedV2 += OnBitsReceivedV2;
         _pubSub.OnChannelSubscription += OnChannelSubscription;
-                
+
         _pubSub.Connect();
 
         _pubSub.ListenToChannelPoints(channelID);
@@ -59,15 +59,15 @@ public class TwitchPubSub : MonoBehaviour
     private void OnChannelPointsRedeemed(object sender, TwitchLib.PubSub.Events.OnChannelPointsRewardRedeemedArgs e)
     {
         Redemption redemption = e.RewardRedeemed.Redemption;
-       
+
         var user = redemption.User;
         string rewardID = redemption.Reward.Id;
         string redemptionID = redemption.Id;
         string rewardTitle = redemption.Reward.Title;
 
-        Debug.Log($"reward redeemed {e.ChannelId} rewardID: {rewardID} redemptionID: {redemptionID}"); 
+        Debug.Log($"reward redeemed {e.ChannelId} rewardID: {rewardID} redemptionID: {redemptionID}");
 
-        StartCoroutine(HandleOnChannelPointsRedeemed(user.Id, user.Login, rewardTitle, redemption.UserInput, redemption.Reward.Cost)); 
+        StartCoroutine(HandleOnChannelPointsRedeemed(user.Id, user.Login, rewardTitle, redemption.UserInput, redemption.Reward.Cost));
     }
     public IEnumerator HandleOnChannelPointsRedeemed(string twitchId, string twitchUsername, string rewardTitle, string msg, int cost)
     {
@@ -84,7 +84,7 @@ public class TwitchPubSub : MonoBehaviour
 
         ph.pp.LastInteraction = DateTime.Now;
         ph.pp.TwitchUsername = twitchUsername;
-        ph.pp.TotalTicketsSpent += cost; 
+        ph.pp.TotalTicketsSpent += cost;
 
         if (rewardTitle.StartsWith("Activate Lava"))
             _lavaBitTrigger.AddBits(twitchUsername, AppConfig.inst.GetI("ThroneLavaCost"));
@@ -99,14 +99,14 @@ public class TwitchPubSub : MonoBehaviour
     {
         Debug.Log($"Inside bits received v2 total bits: {e.TotalBitsUsed} {e.BitsUsed}");
         //Bits used is the amount contained in the message, total bits sums up the total bits the user has donated over time. Not sure over what timespan.
-        
 
-        StartCoroutine(HandleOnBitsReceived(e.UserId, e.UserName, e.ChatMessage, e.BitsUsed)); 
+
+        StartCoroutine(HandleOnBitsReceived(e.UserId, e.UserName, e.ChatMessage, e.BitsUsed));
     }
 
     public IEnumerator HandleOnBitsReceived(string twitchId, string twitchUsername, string rawMsg, int bitsInMessage)
     {
-        CLDebug.Inst.ReportDonation("NEW BIT DONATION", $"{bitsInMessage} bits (${bitsInMessage/100f}) from {twitchUsername}.\nMessage: {rawMsg}"); 
+        CLDebug.Inst.ReportDonation("NEW BIT DONATION", $"{bitsInMessage} bits (${bitsInMessage / 100f}) from {twitchUsername}.\nMessage: {rawMsg}");
 
         CoroutineResult<PlayerHandler> coResult = new CoroutineResult<PlayerHandler>();
         yield return _gm.GetPlayerHandler(twitchId, coResult);
@@ -129,22 +129,22 @@ public class TwitchPubSub : MonoBehaviour
         if (rawMsg.ToLower().Contains("!water"))
         {
             _waterBitTrigger.AddBits(twitchUsername, bitsInMessage);
-            
+
             yield break;
         }
 
-        if(bitsInMessage >= 200)
+        if (bitsInMessage >= 200)
             StartCoroutine(_rebellionController.CreateRebellion(ph, bitsInMessage, rawMsg));
         else
             _twitchClient.PingReplyPlayer(twitchUsername, "Rebellion requires minimum of 200 bits. Each 100 bits in message increases multiplier by 1.");
-        
+
 
         _ticketHandler.BidRedemption(ph, bitsInMessage, BidType.Bits);
     }
 
     private void OnRewardRedeemed(object sender, TwitchLib.PubSub.Events.OnRewardRedeemedArgs e)
     {
-        Debug.Log($"reward redeemed: {e.RewardTitle} {e.RewardCost} message {e.Message}"); 
+        Debug.Log($"reward redeemed: {e.RewardTitle} {e.RewardCost} message {e.Message}");
     }
 
     private void OnChannelSubscription(object sender, OnChannelSubscriptionArgs e)
@@ -158,14 +158,14 @@ public class TwitchPubSub : MonoBehaviour
         string username = subscription.Username;
 
         int MultiMonthDuration = 1;
-        if(e.Subscription.MultiMonthDuration.HasValue && e.Subscription.MultiMonthDuration.Value >= 1)
+        if (e.Subscription.MultiMonthDuration.HasValue && e.Subscription.MultiMonthDuration.Value >= 1)
             MultiMonthDuration = e.Subscription.MultiMonthDuration.Value;
 
         var subPlan = subscription.SubscriptionPlan;
 
         if (subscription.IsGift.HasValue)
         {
-            if(subscription.IsGift.Value)
+            if (subscription.IsGift.Value)
             {
                 string recipientId = subscription.RecipientId;
                 string recipientUsername = subscription.RecipientName;
@@ -199,7 +199,7 @@ public class TwitchPubSub : MonoBehaviour
         int bidAmount = AppConfig.inst.GetI("NewSubBonusBid") * MultiMonthDuration;
         if (subPlan == SubscriptionPlan.Tier2)
             bidAmount *= 2;
-        else if(subPlan == SubscriptionPlan.Tier3)
+        else if (subPlan == SubscriptionPlan.Tier3)
             bidAmount *= 3;
 
         _ticketHandler.BidRedemption(ph, bidAmount, BidType.NewSubBonus);
@@ -222,7 +222,7 @@ public class TwitchPubSub : MonoBehaviour
         ph.pp.LastInteraction = DateTime.Now;
         ph.pp.TwitchUsername = username;
 
-        MyTTS.inst.AggregateSubGift(username, MultiMonthDuration, subPlan); 
+        MyTTS.inst.AggregateSubGift(username, MultiMonthDuration, subPlan);
         //MyTTS.inst.Announce($"{username} gifted {MultiMonthDuration} {subPlan} sub{((MultiMonthDuration > 1) ? "s" : "")} to {recipientUsername}. What a bro.");
 
         int bidAmount = AppConfig.inst.GetI("NewSubBonusBid") * MultiMonthDuration;
@@ -243,7 +243,7 @@ public class TwitchPubSub : MonoBehaviour
     private void OnDestroy()
     {
         // Cleanup when the object is destroyed
-        if(_pubSub != null )
+        if (_pubSub != null)
             _pubSub.Disconnect();
     }
 }

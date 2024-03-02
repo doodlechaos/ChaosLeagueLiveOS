@@ -19,6 +19,14 @@ public abstract class ShopEntry : PlayerReceiveable
         GoldCost = goldCost; 
     }
 
+    public void InitMultiEntryBase(int goldCost, List<string> buyCommandText)
+    {
+        _goldCostText.SetText($"Total Cost:\n{MyUtil.AbbreviateNum4Char(goldCost)} Gold");
+        _buyCommandText.SetText(buyCommandText[0]);
+        GoldCost = goldCost;
+    }
+
+
     public void HideCommandText()
     {
         _buyCommandText.gameObject.SetActive(false);

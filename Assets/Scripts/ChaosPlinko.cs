@@ -68,7 +68,7 @@ public class ChaosPlinko : Game, IObsSpawner
     {
         _gt.GetSuddenDeath().SpawnDeathBall();
 
-        //Set the target obstacle count based on the rarity
+       /* //Set the target obstacle count based on the rarity
         if (_gt.GetRarity() == RarityType.Common)
             _targetObsCount = 15;
         else if (_gt.GetRarity() == RarityType.Rare)
@@ -76,7 +76,7 @@ public class ChaosPlinko : Game, IObsSpawner
         else if (_gt.GetRarity() == RarityType.Epic)
             _targetObsCount = 15;
         else if (_gt.GetRarity() == RarityType.Legendary)
-            _targetObsCount = 15;
+            _targetObsCount = 15; */
 
         StartCoroutine(AutoPopulateObs()); 
     }

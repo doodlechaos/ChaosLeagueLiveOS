@@ -3,7 +3,12 @@ guid: 7cadb973798d3b043a097ae88af3a876
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Rb2D: {instanceID: 0}
+  - BoxCollider2D: {instanceID: 0}
+  - MeshRenderer: {instanceID: 0}
+  - _displayText: {instanceID: 0}
+  - _goldOreMaterial: {fileID: 2100000, guid: ba648f83e2483824884adf130bb3e4c3, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
