@@ -431,17 +431,12 @@ public class BidHandler : MonoBehaviour
     }
 
 
-    public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType)
+    public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType, string redemptionID = null)
     {
         SpawnTI_Bid(ph, target:ph, bidAmount, bidType);
-    }
-    public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType, string redemptionID)
-    {
+
         if (redemptionID == null)
-        {
-            BidRedemption(ph, bidAmount, bidType);
             return;
-        }
 
         string TwitchID = ph.pp.TwitchID;
 
@@ -452,8 +447,6 @@ public class BidHandler : MonoBehaviour
 
         redemptionsIds.Add(redemptionID);
         _redemptionsIds[TwitchID] = redemptionsIds;
-
-        BidRedemption(ph, bidAmount, bidType);
     }
 
     public void TryAddToBiddingQ(PlayerHandler ph)
