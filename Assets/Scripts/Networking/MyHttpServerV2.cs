@@ -257,6 +257,18 @@ public class MyHttpServerV2 : MonoBehaviour
 
         if(request.Url.LocalPath == "/authCallback")
         {
+            if (!request.IsLocal)
+                return Encoding.UTF8.GetBytes(@"
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>OAuth Callback</title>
+                </head>
+                <body>
+                    Unauthorized.
+                </body>
+                </html>");
+
             Debug.Log("Inside /authCallback"); 
 
             return Encoding.UTF8.GetBytes(@"
@@ -282,6 +294,17 @@ public class MyHttpServerV2 : MonoBehaviour
 
         if (request.Url.LocalPath == "/receiveBotAuthCode")
         {
+            if (!request.IsLocal)
+                return Encoding.UTF8.GetBytes(@"
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>OAuth Callback</title>
+                </head>
+                <body>
+                    Unauthorized.
+                </body>
+                </html>");
 
             Debug.Log($"inside receivebotauthcode. request RawUrl: {request.RawUrl}");
 
@@ -303,6 +326,18 @@ public class MyHttpServerV2 : MonoBehaviour
         }
         if (request.Url.LocalPath == "/spotifyToken") // Receive NGROK signal /TODO: Change this path to specify [/updatePlayerFromDB]
         {
+            if (!request.IsLocal)
+                return Encoding.UTF8.GetBytes(@"
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>OAuth Callback</title>
+                </head>
+                <body>
+                    Unauthorized.
+                </body>
+                </html>");
+
             string code = request.QueryString.Get("code");//parsedPostData["code"];
             Debug.Log($"Received spotify code: {code}. Now using this code to request access token");
             using (var client = new HttpClient())
