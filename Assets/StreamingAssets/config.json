@@ -32,7 +32,7 @@
     },
     "enableNGROKConnection": {
       "Menu": 4,
-      "Value": true,
+      "Value": false,
       "UIDisplayText": "Enable NGROK Connection"
     },
     "kingsUntilNextPopup": {
@@ -139,7 +139,7 @@
     },
     "maxToll": {
       "Menu": 3,
-      "Value": 17,
+      "Value": 15,
       "UIDisplayText": "Max Toll"
     },
     "GoldenTilePercentChance": {
@@ -224,22 +224,22 @@
     },
     "CLIENT_ID_PUBLIC": {
       "Menu": 5,
-      "Value": "muomc9f6mg2frvm226osii63qetouk",
+      "Value": "w9li5q2jab5t2oru0v0nt67n333j65",
       "UIDisplayText": "CLIENT_ID_PUBLIC"
     },
     "CLIENT_ID_PRIVATE": {
       "Menu": 5,
-      "Value": "",
+      "Value": "jci8zdykq99u8ulwwc542czcfp947t",
       "UIDisplayText": "CLIENT_ID_PRIVATE"
     },
     "CLIENT_ID_STAGING": {
       "Menu": 5,
-      "Value": "",
+      "Value": "y6395v1ftsncuuzd7gavsvgngporbm",
       "UIDisplayText": "CLIENT_ID_STAGING"
     },
     "CLIENT_SECRET_PRIVATE": {
       "Menu": 5,
-      "Value": "me99kejlilm4otalnzlfperpl7udoe",
+      "Value": "",
       "UIDisplayText": "CLIENT_SECRET_PRIVATE"
     },
     "CLIENT_SECRET_STAGING": {
