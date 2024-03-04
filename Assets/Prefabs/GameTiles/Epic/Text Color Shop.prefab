@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbb35ea186ae9e4780d8984b4d5075f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gt: {fileID: 5529546809039867891}
   IsGameStarted: 0
   DoneWithGameplay: 0
-  _gt: {fileID: 5529546809039867891}
   _entries:
   - {fileID: 3228559363823867538}
   - {fileID: 3537929633969960233}
@@ -113,6 +113,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2532240964184548847, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e1a95539aa3dc840bb149b1e04fa874, type: 2}
     - target: {fileID: 6965428202780938223, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_text
       value: Epic

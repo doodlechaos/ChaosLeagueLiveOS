@@ -62603,8 +62603,6 @@ MonoBehaviour:
   - {fileID: 647519542019892001, guid: e7d6d474eb53ee543a42fecfd320c642, type: 3}
   RareTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
-  - {fileID: 576390978979572706, guid: a308e1d0f0e731d4eb1a1c007d4de1a6, type: 3}
-  - {fileID: 5529546809039867891, guid: cde927a3113020f40928c78977d605c5, type: 3}
   EpicTiles:
   - {fileID: 5156241915605114848, guid: 048cbc98047086a4ebada6acf6b82942, type: 3}
   - {fileID: 576390978979572706, guid: 8a9450e89739c48479fdca34e663b374, type: 3}
@@ -62616,7 +62614,6 @@ MonoBehaviour:
   - {fileID: 5521807422773572966, guid: 8cb5b5eb8ce99754391feb9ac5e4e005, type: 3}
   - {fileID: 5156241915605114848, guid: 7adb0ced0a2c36d43887829a8d90d55c, type: 3}
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
-  - {fileID: 5156241915605114848, guid: 514d42ebac68f9c44a76e2fb7568b7aa, type: 3}
   - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
   LegendaryTiles:
   - {fileID: 461252091043616422, guid: e0a2e9357f3dd904cadf16f00e6164fa, type: 3}

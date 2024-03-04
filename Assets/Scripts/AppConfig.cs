@@ -84,22 +84,12 @@ public class AppConfig
     }
     public static string GetClientID()
     {
-        string API_MODE = inst.GetS("API_MODE");
-        if (API_MODE == "STAGING")
-            return inst.GetS("CLIENT_ID_STAGING");
-        else if (API_MODE == "PRIVATE")
-            return inst.GetS("CLIENT_ID_PRIVATE");
-        else //PUBLIC
-            return inst.GetS("CLIENT_ID_PUBLIC"); 
+        return inst.GetS("CLIENT_ID_PUBLIC");
     }
 
     public static string GetClientSecret()
     {
-        string API_MODE = inst.GetS("API_MODE");
-        if (API_MODE == "STAGING")
-            return inst.GetS("CLIENT_SECRET_STAGING");
-        else //(API_MODE == "PRIVATE")
-            return inst.GetS("CLIENT_SECRET_PRIVATE");
+     return inst.GetS("CLIENT_SECRET_PRIVATE");
     }
 
 

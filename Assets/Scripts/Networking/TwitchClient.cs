@@ -239,7 +239,7 @@ public class TwitchClient : MonoBehaviour
         else if (commandKey.StartsWith("!invite") || commandKey.StartsWith("!recruit") || commandKey.StartsWith("!pyramidscheme") || commandKey.StartsWith("!invitelink") || commandKey.StartsWith("!getinvitelink") || commandKey.StartsWith("!getreferrallink"))
         {           
             string url = $"{Secrets.CHAOS_LEAGUE_DOMAIN}/@{ph.pp.TwitchUsername}";
-            ReplyToPlayer(messageId, ph.pp.TwitchUsername, $"Share to start your pyramid scheme. Every player that joins the stream with your invite link earns you 25% of the gold they earn (yes it compounds)! \n{url}");
+            ReplyToPlayer(messageId, ph.pp.TwitchUsername, $"Share to start your pyramid scheme. Every player that joins the stream with your invite link earns you 50% of the points, and 25% of the gold they earn (The gold compounds)! \n{url}");
             return;
         }
         else if (commandKey.StartsWith("!coinflip") || commandKey.StartsWith("!flipcoin"))
@@ -317,7 +317,7 @@ public class TwitchClient : MonoBehaviour
         {
             if (!ph.IsKing())
             {
-                ReplyToPlayer(messageId, ph.pp.TwitchUsername, "You must hold the throne to change the toll.");
+                ReplyToPlayer(messageId, ph.pp.TwitchUsername, "You must hold the throne to change the toll. The current toll is {toll}");
                 return;
             }
 

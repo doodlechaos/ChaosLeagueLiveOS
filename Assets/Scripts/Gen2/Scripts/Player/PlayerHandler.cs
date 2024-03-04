@@ -221,7 +221,7 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
                 return;
             }
             //Send the invite bonus
-            StartCoroutine(CheckBonusToInviter(_receiveGoldAccumulator)); 
+            StartCoroutine(CheckBonusToInviterGold(_receiveGoldAccumulator)); 
             _receiveGoldAccumulator = 0; 
         }
     }
@@ -475,8 +475,8 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
     {
         pp.SessionScore += points;
 
-        //if (doInviteBonus)
-        //    StartCoroutine(CheckBonusToInviter(points));
+        if (doInviteBonus)
+            StartCoroutine(CheckBonusToInviterPoints(points));
         if (contributeToROI)
             TilePointsROI += points;
 
@@ -508,8 +508,8 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
         if (contributeToROI)
             TilePointsROI += (pp.SessionScore - prevScore);
 
-        //if(doInviteBonus)
-        //    StartCoroutine(CheckBonusToInviter(pp.SessionScore - prevScore));
+        if(doInviteBonus)
+            StartCoroutine(CheckBonusToInviterPoints(pp.SessionScore - prevScore));
 
         UpdateBallPointsText();
 
@@ -623,7 +623,7 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
         }
     }
 
-/*    private IEnumerator CheckBonusToInviter(long amount)
+    private IEnumerator CheckBonusToInviterPoints(long amount)
     {
         if (string.IsNullOrEmpty(pp.InvitedByID))
             yield break;
@@ -645,9 +645,9 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
         }
 
         TextPopupMaster.Inst.CreateTravelingIndicator($"Invite Bonus +{MyUtil.AbbreviateNum4Char(bonus)}", bonus, this, inviterPh, 0.1f, Color.cyan, inviterPh.PfpTexture); 
-    }*/
+    }
 
-    private IEnumerator CheckBonusToInviter(long goldAmount)
+    private IEnumerator CheckBonusToInviterGold(long goldAmount)
     {
         if (string.IsNullOrEmpty(pp.InvitedByID))
             yield break;
@@ -733,7 +733,7 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
         }
 
         //Debug.Log($"{inviter.pp.TwitchUsername} Successfully adding invite {pp.TwitchUsername}");
-        twitchClient.PingReplyPlayer(inviter.pp.TwitchUsername, $"You successfully invited @{pp.TwitchUsername} using your !invite link. You will now earn 25% of all gold they earn!");
+        twitchClient.PingReplyPlayer(inviter.pp.TwitchUsername, $"You successfully invited @{pp.TwitchUsername} using your !invite link. You will now earn 50% of all points, and 25% of all gold they earn!");
         inviter.pp.AddInvite(pp.TwitchID);
         pp.InvitedByID = inviter.pp.TwitchID;
         pp.LastInteraction = DateTime.Now;

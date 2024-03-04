@@ -11459,7 +11459,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c9e8df7449443845b4498aa3bd0d7e6, type: 2}
+  - {fileID: 2100000, guid: 6e1a95539aa3dc840bb149b1e04fa874, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12359,7 +12359,7 @@ MonoBehaviour:
   DisplayBackground: {fileID: 8211169259492255721}
   _buyCommandText: {fileID: 1469042125514018170}
   _goldCostText: {fileID: 6187254384561468636}
-  GoldCost: 0
+  GoldCost: 100000
   _crown: {fileID: 496994949881754717}
   BuyCommands:
   - '!buy1'
@@ -12700,12 +12700,23 @@ MonoBehaviour:
   _entryBackground: {fileID: 2439896754489860517}
   DisplayBackground: {fileID: 8211169259492255721}
   _buyCommandText: {fileID: 1469042125514018170}
-  _goldCostText: {fileID: 6187254384561468636}
-  GoldCost: 0
+  _goldCostText: {fileID: 1619599072254791321}
+  GoldCost: 1000000
   _crown: {fileID: 4990513492652084760}
   BuyCommands:
   - '!buy3'
   - '!buy 3'
+--- !u!114 &1619599072254791321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750412167744577355, guid: aafc374824bbbee4189b26c178f63c67, type: 3}
+  m_PrefabInstance: {fileID: 6463907502142738898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4990513492652084760 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2086772140310339530, guid: aafc374824bbbee4189b26c178f63c67, type: 3}
@@ -12815,8 +12826,8 @@ MonoBehaviour:
   _entryBackground: {fileID: 2439896754489860517}
   DisplayBackground: {fileID: 8211169259492255721}
   _buyCommandText: {fileID: 1469042125514018170}
-  _goldCostText: {fileID: 6187254384561468636}
-  GoldCost: 0
+  _goldCostText: {fileID: 4524443460292507518}
+  GoldCost: 500000
   _crown: {fileID: 7922438717192288255}
   BuyCommands:
   - '!buy2'
@@ -12831,6 +12842,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6766867589588036922, guid: aafc374824bbbee4189b26c178f63c67, type: 3}
   m_PrefabInstance: {fileID: 8144650238060996661}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4524443460292507518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750412167744577355, guid: aafc374824bbbee4189b26c178f63c67, type: 3}
+  m_PrefabInstance: {fileID: 8144650238060996661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7922438717192288255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2086772140310339530, guid: aafc374824bbbee4189b26c178f63c67, type: 3}
