@@ -170,8 +170,11 @@ public class BucketSwitcherGame : Game
     {
         GameObject bottom = effector.transform.Find("Bottom").gameObject;
 
+        if (bottom == null)
+            return;
+
         BoxCollider2D collider = bottom.GetComponent<BoxCollider2D>();
-        if (collider = null)
+        if (collider == null)
             return;
 
         if (effector.GetEffect().HasFlag(PBEffect.Add))
