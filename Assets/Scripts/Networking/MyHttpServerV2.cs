@@ -27,6 +27,7 @@ public class MyHttpServerV2 : MonoBehaviour
     [SerializeField] private SpotifyDJ _spotifyDJ;
 
     private HttpListener _listener;
+    
     public void Start()
     {
         StartListener();
@@ -259,16 +260,7 @@ public class MyHttpServerV2 : MonoBehaviour
         if(request.Url.LocalPath == "/authCallback")
         {
             if (!request.IsLocal)
-                return Encoding.UTF8.GetBytes(@"
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>OAuth Callback</title>
-                </head>
-                <body>
-                    Unauthorized.
-                </body>
-                </html>");
+                return UnauthorisedResponse();
 
             Debug.Log("Inside /authCallback"); 
 
@@ -280,10 +272,11 @@ public class MyHttpServerV2 : MonoBehaviour
                     <script type='text/javascript'>
                         // JavaScript to extract token and send to /receiveToken
                         if (window.location.hash) {
-                            var hash = window.location.hash.substring(1);
-                            var params = new URLSearchParams(hash);
-                            var accessToken = params.get('access_token');
-                            window.location.href = 'http://localhost:3001/receiveBotAuthCode?access_token=' + accessToken;
+                            let hash = window.location.hash.substring(1);
+                            let params = new URLSearchParams(hash);
+                            let accessToken = params.get('access_token');
+                            let state = params.get('state');
+                            window.location.href = 'http://localhost:3001/receiveBotAuthCode?access_token=' + accessToken + '&state=' + state;
                         }
                     </script>
                 </head>
@@ -296,16 +289,11 @@ public class MyHttpServerV2 : MonoBehaviour
         if (request.Url.LocalPath == "/receiveBotAuthCode")
         {
             if (!request.IsLocal)
-                return Encoding.UTF8.GetBytes(@"
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>OAuth Callback</title>
-                </head>
-                <body>
-                    Unauthorized.
-                </body>
-                </html>");
+                return UnauthorisedResponse();
+
+            string twitchState = request.QueryString.Get("state");
+            if (_twitchApi._state != twitchState)
+                return UnauthorisedResponse();
 
             Debug.Log($"inside receivebotauthcode. request RawUrl: {request.RawUrl}");
 
@@ -328,16 +316,11 @@ public class MyHttpServerV2 : MonoBehaviour
         if (request.Url.LocalPath == "/spotifyToken") // Receive NGROK signal /TODO: Change this path to specify [/updatePlayerFromDB]
         {
             if (!request.IsLocal)
-                return Encoding.UTF8.GetBytes(@"
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>OAuth Callback</title>
-                </head>
-                <body>
-                    Unauthorized.
-                </body>
-                </html>");
+                return UnauthorisedResponse();
+
+            string spotifyState = request.QueryString.Get("state");
+            if (_spotifyDJ._state != spotifyState)
+                return UnauthorisedResponse();
 
             string code = request.QueryString.Get("code");//parsedPostData["code"];
             Debug.Log($"Received spotify code: {code}. Now using this code to request access token");
@@ -366,6 +349,20 @@ public class MyHttpServerV2 : MonoBehaviour
         }
         return responseData;
 
+    }
+
+    public byte[] UnauthorisedResponse()
+    {
+        return Encoding.UTF8.GetBytes(@"
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>OAuth Callback</title>
+                </head>
+                <body>
+                    Unauthorized.
+                </body>
+                </html>");
     }
 
     public void OnDestroy()

@@ -50,6 +50,8 @@ public class TwitchApi : MonoBehaviour
 
     [SerializeField] private bool testbutton; 
 
+    [HideInInspector] public string _state {get; private set;}
+
     private void Awake()
     {
         // Create new instance of Api
@@ -69,13 +71,20 @@ public class TwitchApi : MonoBehaviour
 
     private void Start()
     {
-        AskForBotAuthorization();
+        GenerateRandomState();
 
+        AskForBotAuthorization();
 
         _cts = new CancellationTokenSource();
         _ = AutoRefreshToken(_cts);
     }
 
+    private void GenerateRandomState()
+    {
+        string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        _state = new string(Enumerable.Repeat(chars, 64)
+                .Select(s => s[UnityEngine.Random.Range(0, s.Length)]).ToArray());
+    }
 
     public async Task AutoRefreshToken(CancellationTokenSource cts)
     {
@@ -165,6 +174,7 @@ public class TwitchApi : MonoBehaviour
             responseType = "token";
             redirectURI = Secrets.REDIRECT_URI_BOT_AUTH_PUBLIC;
         }
+        string encodedState = WebUtility.UrlEncode(_state);
 
 
         Debug.Log($"Asking for authorization with {responseType} response type"); 
@@ -172,7 +182,7 @@ public class TwitchApi : MonoBehaviour
         string scopes = "chat:read chat:edit channel:moderate channel:read:subscriptions whispers:read whispers:edit moderation:read channel:read:redemptions channel:manage:redemptions channel:read:goals moderator:read:chat_settings " +
             "channel:manage:raids moderator:manage:announcements moderator:manage:chat_messages user:manage:chat_color channel:read:vips user:manage:whispers bits:read user:edit channel:read:hype_train channel:manage:polls " +
             "channel:manage:predictions channel:read:polls channel:read:predictions";
-        string BotAuthURL = $"https://id.twitch.tv/oauth2/authorize?client_id={AppConfig.GetClientID()}&redirect_uri={redirectURI}&response_type={responseType}&scope={scopes}\r\n";
+        string BotAuthURL = $"https://id.twitch.tv/oauth2/authorize?client_id={AppConfig.GetClientID()}&redirect_uri={redirectURI}&response_type={responseType}&scope={scopes}&state={encodedState}\r\n";
 
         Debug.Log($"Asking for bot authorization from url: {BotAuthURL}");
         Application.OpenURL(BotAuthURL);
