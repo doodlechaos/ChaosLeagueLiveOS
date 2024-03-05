@@ -36850,22 +36850,22 @@ MonoBehaviour:
     m_RotationOrder: 4
   _totalPrizeGradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0.8906796, b: 1, a: 1}
-    key1: {r: 0.07717762, g: 1, b: 0.07058823, a: 1}
-    key2: {r: 0.6933989, g: 0.14117646, b: 1, a: 0}
-    key3: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
-    key4: {r: 1, g: 1, b: 1, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 0.7579201, b: 0.4009434, a: 1}
+    key1: {r: 0.73146665, g: 1, b: 0, a: 1}
+    key2: {r: 0.031372547, g: 1, b: 0.15385231, a: 0}
+    key3: {r: 0.3160377, g: 0.36088553, b: 1, a: 0}
+    key4: {r: 0.19480072, g: 0.13501245, b: 0.6981132, a: 0}
+    key5: {r: 0.45847428, g: 0.16470587, b: 1, a: 0}
+    key6: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
     ctime0: 0
-    ctime1: 1347
-    ctime2: 4040
-    ctime3: 23277
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
+    ctime1: 1311
+    ctime2: 2621
+    ctime3: 6554
+    ctime4: 13107
+    ctime5: 26214
+    ctime6: 52428
+    ctime7: 65535
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -36874,11 +36874,11 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 0
+    m_Mode: 2
     m_ColorSpace: -1
-    m_NumColorKeys: 5
+    m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  _maxPrizeGradientAmount: 100000
+  _maxPrizeGradientAmount: 1000000
 --- !u!114 &1953386615
 MonoBehaviour:
   m_ObjectHideFlags: 0
