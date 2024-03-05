@@ -28,7 +28,7 @@ public class DeathBall : MonoBehaviour
         _rb.isKinematic = false;
 
         _matPropBlock = new MaterialPropertyBlock();
-        _matPropBlock.SetFloat("_FillAmount", 0);
+        _matPropBlock.SetFloat("_FillAmount", 1);
         _loadingRing.SetPropertyBlock(_matPropBlock);
     }
 
