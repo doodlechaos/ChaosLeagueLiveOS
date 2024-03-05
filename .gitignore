@@ -76,3 +76,7 @@ crashlytics-build.properties
 *.env.meta
 Assets/StreamingAssets/ngrok-v3-stable-windows-amd64/ngrok.exe
 Assets/StreamingAssets/ngrok-v3-stable-windows-amd64/ngrok.exe.meta
+
+#Config Secrets
+config.json
+Assets/StreamingAssets/config.json
