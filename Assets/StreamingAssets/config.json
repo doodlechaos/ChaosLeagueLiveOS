@@ -59,12 +59,12 @@
     },
     "SpotifyClientID": {
       "Menu": 4,
-      "Value": "e4eb01c54b2a41c385d1ce8d1e58eaae",
+      "Value": "c8419b9d6b984bcdaa84b65ec016f175",
       "UIDisplayText": "Spotify Client ID"
     },
     "SpotifyClientSecret": {
       "Menu": 4,
-      "Value": "",
+      "Value": "609de058b03e4bf4809881b17be29405",
       "UIDisplayText": "Spotify Client Secret"
     },
     "SpotifyRedirectPath": {
@@ -210,7 +210,7 @@
     "GivePointsLimit": {
       "Menu": 4,
       "Value": 15000,
-      "UIDisplayText": "Trail Tier 3 Time"
+      "UIDisplayText": "Trail Tier 4 Time"
     },
     "EnablePyramidSchemeInvites": {
       "Menu": 4,
