@@ -29,6 +29,8 @@ public class UnitTesting : MonoBehaviour
     [SerializeField] private string rewardTitle; 
     [SerializeField] private int bits;
     [SerializeField] private bool isAdmin = true; 
+    [SerializeField] private bool isMod = true; 
+    [SerializeField] private bool isVIP = true; 
 
     [SerializeField] private bool RegularMessageButton;
     [SerializeField] private bool RedeemRewardButton;
@@ -49,6 +51,9 @@ public class UnitTesting : MonoBehaviour
     [SerializeField] private int autoTestSecInterval;
 
     [SerializeField] private bool testRandomTiles;
+
+    [SerializeField] private bool JobexiTest;
+
 
     private float autoTestTimer = 0;
 
@@ -83,12 +88,18 @@ public class UnitTesting : MonoBehaviour
                 string userID = GetUserId();
                 string username = testUsername + userID;
                 StartCoroutine(_twitchPubSub.HandleOnChannelPointsRedeemed(userID, username, rewardTitle, userInput, rewardCost)); //Pubsub activate both
-                StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes:null, isSubscriber, isFirstMessage, bits, isAdmin));
+                StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes:null, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
             }
         }
     }
     private void OnValidate()
     {
+        if (JobexiTest)
+        {
+            JobexiTest = false;
+            CurrentTest();
+        }
+
         if (RegularMessageButton)
         {
             RegularMessageButton = false;
@@ -136,25 +147,34 @@ public class UnitTesting : MonoBehaviour
             TestRandomTiles();
         }
     }
+    
+
+    private void CurrentTest()
+    {
+        string userID = GetUserId();
+        string username = testUsername + userID;
+        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
+    }
+
     private void RegularMessage()
     {
         string userID = GetUserId();
         string username = testUsername + userID;
-        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin));
+        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
     }
     private void RedeemReward()
     {
         string userID = GetUserId();
         string username = testUsername + userID;
         StartCoroutine(_twitchPubSub.HandleOnChannelPointsRedeemed(userID, username, rewardTitle, userInput, rewardCost)); //Pubsub activate both
-        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin));
+        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
     }
     private void SendBits()
     {
         string userID = GetUserId();
         string username = testUsername + userID;
         StartCoroutine(_twitchPubSub.HandleOnBitsReceived(userID, username, userInput, bits)); //Pubsub activate both
-        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin));
+        StartCoroutine(_twitchClient.HandleMessage(null, userID, username, GetNameColor(), userInput, emotes: null, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
     }
     private string GetUserId()
     {

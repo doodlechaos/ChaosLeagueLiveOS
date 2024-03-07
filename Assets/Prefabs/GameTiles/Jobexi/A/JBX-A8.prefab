@@ -2529,6 +2529,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1697319851396788172, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
+      propertyPath: m_fontSize
+      value: 7.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697319851396788172, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -2553,16 +2557,24 @@ PrefabInstance:
       value: -3.8102
       objectReference: {fileID: 0}
     - target: {fileID: 3871752520633747056, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10.074
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871752520633747056, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.891
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871752520633747056, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 3871752520633747056, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.81
+      value: -3.8184
       objectReference: {fileID: 0}
     - target: {fileID: 3871752520633747056, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: 0.0505
       objectReference: {fileID: 0}
     - target: {fileID: 6192801997605837540, guid: 8bf6241eee0553d4d87eb353c783df6c, type: 3}
       propertyPath: _value
@@ -2754,7 +2766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860234554731157289, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1546782326461584296, guid: 3b12c201b1666ad46a5bc38322ec5b1d, type: 3}
       propertyPath: m_text

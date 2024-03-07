@@ -11,9 +11,9 @@ public class LegendaryCrownShop : Game
 
     public override void OnTilePreInit()
     {
-        _entries[0].InitEntry(1, (_gt.IsGolden) ? 333_000 : 500_000);
-        _entries[1].InitEntry(2, (_gt.IsGolden) ? 666_000 : 1_000_000);
-        _entries[2].InitEntry(3, (_gt.IsGolden) ? 1_250_000 : 2_500_000);
+        _entries[0].InitEntry(4, (_gt.IsGolden) ? 1_000_000 : 2_500_000);
+        _entries[1].InitEntry(5, (_gt.IsGolden) ? 2_500_000 : 5_000_000);
+        _entries[2].InitEntry(6, (_gt.IsGolden) ? 5_000_000 : 10_000_000);
 
         foreach (var entry in _entries)
             entry.HideCommandText();

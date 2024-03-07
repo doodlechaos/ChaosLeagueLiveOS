@@ -13,6 +13,6 @@ public class Secrets
     public static string REDIRECT_URI_INVITE = "http://localhost:3001/invited/";
 
     public static string TUNNEL_DOMAIN = "chaosleague-jobexi.ngrok.io"; 
-    public static string CHAOS_LEAGUE_DOMAIN = "https://chaosleague-jobexi.ngrok.io";
+    public static string CHAOS_LEAGUE_DOMAIN = "https://jobexileague.com";
 
 }

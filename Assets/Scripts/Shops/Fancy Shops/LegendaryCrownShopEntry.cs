@@ -12,7 +12,6 @@ public class LegendaryCrownShopEntry : ShopEntry
     {
         InitEntryBase(goldCost, BuyCommands);
 
-        tier = tier + 1;
         colors = _crown.GetRandomColorList(tier);
         _crown.UpdateCustomizations(colors); 
     }

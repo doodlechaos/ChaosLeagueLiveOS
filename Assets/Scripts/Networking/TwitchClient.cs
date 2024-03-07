@@ -30,6 +30,8 @@ public class TwitchClient : MonoBehaviour
     [SerializeField] private SpotifyDJ _spotifyDJ;
 
     private Client _client;
+    private Gradient _modGradient;
+    private Gradient _vipGradient;
 
     public void Init(string channelName, string botAccessToken)
     {
@@ -75,28 +77,30 @@ public class TwitchClient : MonoBehaviour
 
     public void OnMessageReceived(object sender, OnMessageReceivedArgs e)
     {
-        string messageId = e.ChatMessage.Id; 
+        string messageId = e.ChatMessage.Id;
         string twitchId = e.ChatMessage.UserId;
         string twitchUsername = e.ChatMessage.Username;
         Color usernameColor = Color.white;
 
         ColorUtility.TryParseHtmlString(e.ChatMessage.ColorHex, out usernameColor);
 
-        Debug.Log($"Found name color in message: {MyUtil.ColorToHexString(usernameColor)} {e.ChatMessage.ColorHex}"); 
+        Debug.Log($"Found name color in message: {MyUtil.ColorToHexString(usernameColor)} {e.ChatMessage.ColorHex}");
         string rawIrcMsg = e.ChatMessage.RawIrcMessage;
         string rawMsg = e.ChatMessage.Message;
         bool isSubscriber = e.ChatMessage.IsSubscriber;
         bool isFirstMessage = e.ChatMessage.IsFirstMessage;
         int bits = e.ChatMessage.Bits;
         bool isAdmin = (twitchId == Secrets.CHANNEL_ID); //e.chatmessage.isMe doesn't work for some reason
+        bool isMod = false;
+        bool isVIP = false;
 
         //Debug.Log($"Total emotes: {e.ChatMessage.EmoteSet.Emotes.Count} emote replaced message: {e.ChatMessage.EmoteReplacedMessage} rawIrcMsg: {rawIrcMsg}");
         List<Emote> emotes = e.ChatMessage.EmoteSet.Emotes;
         emotes.Sort((emote1, emote2) => emote1.StartIndex.CompareTo(emote2.StartIndex));
 
-        StartCoroutine(HandleMessage(messageId, twitchId, twitchUsername, usernameColor, rawMsg, emotes, isSubscriber, isFirstMessage, bits, isAdmin));
+        StartCoroutine(HandleMessage(messageId, twitchId, twitchUsername, usernameColor, rawMsg, emotes, isSubscriber, isFirstMessage, bits, isAdmin, isMod, isVIP));
 
-        Debug.Log(JsonConvert.SerializeObject(e, formatting:Formatting.Indented).ToString());
+        Debug.Log(JsonConvert.SerializeObject(e, formatting: Formatting.Indented).ToString());
 
         //If the message is a hype chat, give them the multiplier zone
         //e.ChatMessage.user
@@ -104,19 +108,23 @@ public class TwitchClient : MonoBehaviour
 
     }
 
-    public IEnumerator HandleMessage(string messageId, string twitchId, string twitchUsername, Color usernameColor, string rawMsg, List<Emote> emotes, bool isSubscriber, bool isFirstMessage, int bits, bool isAdmin)
+    public IEnumerator HandleMessage(string messageId, string twitchId, string twitchUsername, Color usernameColor, string rawMsg, List<Emote> emotes, bool isSubscriber, bool isFirstMessage, int bits, bool isAdmin, bool isMod, bool isVIP)
     {
 
         //Debug.LogError($"Handling message from: API_MODE: {AppConfig.inst.GetS("API_MODE")} ClientID: {AppConfig.GetClientID()} ClientSecret: {AppConfig.GetClientSecret()}");
 
         bool isMe = twitchId == Secrets.CHANNEL_ID;
+        if (!isMod)
+        { isMod = twitchId == "demoralize94"; }
+        if (!isVIP)
+        { isVIP = twitchId == "lxtroach"; }
         string sanitizedMsg = rawMsg.Replace("<", "").Replace(">", "");
 
         string rawEmotesRemoved = sanitizedMsg;
         string spriteInfusedMsg = sanitizedMsg;
-        if(emotes != null && emotes.Count > 0)
+        if (emotes != null && emotes.Count > 0)
         {
-            Debug.Log("Found emotes: " +  emotes.Count);
+            Debug.Log("Found emotes: " + emotes.Count);
             rawEmotesRemoved = RemoveTwitchEmotes(rawMsg, emotes);
             rawEmotesRemoved = rawEmotesRemoved.Replace("<", "").Replace(">", "");
 
@@ -140,6 +148,9 @@ public class TwitchClient : MonoBehaviour
             yield break;
         }
 
+        if (isAdmin)
+            ProcessAdminCommands(messageId, ph, sanitizedMsg, bits);
+
         ph.pp.LastInteraction = DateTime.Now;
         ph.pp.TwitchUsername = twitchUsername;
         ph.pp.IsSubscriber = isSubscriber;
@@ -151,8 +162,13 @@ public class TwitchClient : MonoBehaviour
         if (sanitizedMsg.StartsWith('!'))
         {
             if (isAdmin)
-                ProcessAdminCommands(messageId, ph, sanitizedMsg, bits); 
+                ProcessAdminCommands(messageId, ph, sanitizedMsg, bits);
 
+            if (isMod || isAdmin)
+                ProcessModCommands(messageId, ph, sanitizedMsg, bits);
+
+            if (isVIP || isAdmin)
+                ProcessVIPCommands(messageId, ph, sanitizedMsg, bits);
             //If player is not spawned in bidding or gameplay tile in any form
             ProcessGlobalCommands(messageId, ph, sanitizedMsg, bits);
         }
@@ -163,7 +179,7 @@ public class TwitchClient : MonoBehaviour
             {
                 MyTTS.inst.PlayerSpeech(rawEmotesRemoved, Amazon.Polly.VoiceId.Joey);
                 if (rawEmotesRemoved.ToLower().Contains("zobm"))
-                    _autoPredictions.KingWordSignal(); 
+                    _autoPredictions.KingWordSignal();
             }
         }
 
@@ -173,7 +189,7 @@ public class TwitchClient : MonoBehaviour
         if (isFirstMessage && AppConfig.inst.GetB("EnableFirstMessageBonus"))
         {
             MyTTS.inst.Announce($"New player! Everyone welcome {twitchUsername} to the Chaos League.");
-            _bidHandler.BidRedemption(ph, AppConfig.inst.GetI("FirstMessageBonusBid"), BidType.NewPlayerBonus); 
+            _bidHandler.BidRedemption(ph, AppConfig.inst.GetI("FirstMessageBonusBid"), BidType.NewPlayerBonus);
         }
 
 
@@ -186,11 +202,11 @@ public class TwitchClient : MonoBehaviour
             PingReplyPlayer(username, message);
             return;
         }
-        _client.SendReply(Secrets.CHANNEL_NAME, messageId, $"[BOT] {message}"); 
+        _client.SendReply(Secrets.CHANNEL_NAME, messageId, $"[BOT] {message}");
     }
     public void PingReplyPlayer(string twitchUsername, string message)
     {
-        _client.SendMessage(Secrets.CHANNEL_NAME, $"[BOT] @{twitchUsername} {message}"); 
+        _client.SendMessage(Secrets.CHANNEL_NAME, $"[BOT] @{twitchUsername} {message}");
     }
 
     private void ProcessAdminCommands(string messageId, PlayerHandler ph, string msg, int bits)
@@ -198,7 +214,7 @@ public class TwitchClient : MonoBehaviour
         string commandKey = msg.ToLower();
         if (commandKey.StartsWith("!adminbits"))
         {
-            StartCoroutine(ProcessAdminGiveBits(messageId, ph, msg)); 
+            StartCoroutine(ProcessAdminGiveBits(messageId, ph, msg));
             return;
         }
         else if (commandKey.StartsWith("!adminskipgameplay"))
@@ -208,6 +224,128 @@ public class TwitchClient : MonoBehaviour
         }
 
 
+    }
+
+    private Gradient GetModGradient(int numColors)
+    {
+        Gradient gradient = new Gradient();
+        gradient.mode = GradientMode.PerceptualBlend;
+
+        // Create color keys
+        GradientColorKey[] colorKeys = new GradientColorKey[numColors];
+
+        float startAlpha = 1f;
+
+        // Create alpha keys
+        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
+        alphaKeys[0] = new GradientAlphaKey(startAlpha, 0); // Alpha starts at 1
+        alphaKeys[1] = new GradientAlphaKey(0, 1); // Alpha ends at 0
+
+        // Assign random colors at random positions for each color key
+        for (int i = 0; i < numColors; i++)
+        {
+            colorKeys[i].time = Mathf.Lerp(0, 0.66f, i / (numColors - 1f)); // Distribute the colors across the gradient
+        }
+
+        colorKeys[0].color = Color.HSVToRGB(0, 0, 1);
+        colorKeys[1].color = Color.HSVToRGB(0, 0, 1);
+        colorKeys[2].color = Color.HSVToRGB(0, 0, 1);
+        colorKeys[3].color = Color.HSVToRGB(0, 0, 1);
+        colorKeys[4].color = Color.HSVToRGB(0, 0, 1);
+
+        // Set the color and alpha keys
+        gradient.SetKeys(colorKeys, alphaKeys);
+
+        return gradient;
+    }
+
+    private void ProcessModCommands(string messageId, PlayerHandler ph, string msg, int bits)
+    {
+        string commandKey = msg.ToLower();
+        if (commandKey.StartsWith("!adminskipgameplay"))
+        {
+            _tileController.GameplayTile?.ForceEndGameplay();
+            return;
+        }
+
+        if (commandKey.StartsWith("!modtrail"))
+        {
+
+            _modGradient = GetModGradient(5);
+            // Create color keys            
+
+            string json = GradientSerializer.SerializeGradient(_modGradient);
+            Debug.Log("Cowboys");
+            ph.pp.TrailGradientJSON = json;
+
+            //Set the player handler customizations
+            ph.SetCustomizationsFromPP();
+        }
+    }
+
+    private Gradient GetVIPGradient(int numColors, int vip)
+    {
+        Gradient gradient = new Gradient();
+        gradient.mode = GradientMode.PerceptualBlend;
+
+        // Create color keys
+        GradientColorKey[] colorKeys = new GradientColorKey[numColors];
+
+        float startAlpha = 1f;
+
+        GradientAlphaKey[] alphaKeys = new GradientAlphaKey[2];
+        if (vip == 1)
+        {
+            // Create alpha keys
+
+            alphaKeys[0] = new GradientAlphaKey(startAlpha, 0); // Alpha starts at 1
+            alphaKeys[1] = new GradientAlphaKey(0, 1); // Alpha ends at 0
+
+            colorKeys[0].color = Color.HSVToRGB(0.002f, 0.76f, 0.44f);
+            colorKeys[1].color = Color.HSVToRGB(0.102f, 0.53f, 0.73f);
+            colorKeys[2].color = Color.HSVToRGB(0.061f, 0.64f, 0.26f);
+            colorKeys[3].color = Color.HSVToRGB(0.069f, 0.73f, 0.60f);
+            colorKeys[4].color = Color.HSVToRGB(0.119f, 0.35f, 1f);
+        }
+
+        // Assign random colors at random positions for each color key
+        for (int i = 0; i < numColors; i++)
+        {
+            colorKeys[i].time = Mathf.Lerp(0, 0.66f, i / (numColors - 1f)); // Distribute the colors across the gradient
+        }
+
+        // Set the color and alpha keys
+        gradient.SetKeys(colorKeys, alphaKeys);
+
+        return gradient;
+    }
+
+    private void ProcessVIPCommands(string messageId, PlayerHandler ph, string msg, int bits)
+    {
+        Debug.Log("VIP Command");
+        string commandKey = msg.ToLower();
+        if (commandKey.StartsWith("!viproach"))
+        {
+            RoachTrail(ph);
+        }
+
+        if (commandKey.StartsWith("!thisismytrailtherearemanylikeitbutthisoneisroachs"))
+        {
+            RoachTrail(ph);
+        }
+    }
+
+    private void RoachTrail(PlayerHandler ph)
+    {
+        _vipGradient = GetVIPGradient(5, 1);
+        // Create color keys            
+
+        string json = GradientSerializer.SerializeGradient(_vipGradient);
+        Debug.Log("Roach");
+        ph.pp.TrailGradientJSON = json;
+
+        //Set the player handler customizations
+        ph.SetCustomizationsFromPP();
     }
 
     private void ProcessGlobalCommands(string messageId, PlayerHandler ph, string msg, int bits)
@@ -232,7 +370,7 @@ public class TwitchClient : MonoBehaviour
         }
         else if (commandKey.StartsWith("!discord"))
         {
-            ReplyToPlayer(messageId, ph.pp.TwitchUsername, $"Join the discord to chat with other players and share your thoughts on the game: https://discord.gg/tCjGjF68ds");
+            ReplyToPlayer(messageId, ph.pp.TwitchUsername, $"Join the discord to chat with other players and share your thoughts on the game: https://discord.gg/A3bpgW9YfE");
             return;
         }
 

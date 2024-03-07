@@ -7260,17 +7260,19 @@ MonoBehaviour:
   _twitchClient: {fileID: 719420099}
   _twitchPubSub: {fileID: 943938167}
   _tileController: {fileID: 5393775865149022912}
-  incrementUserId: 1
+  incrementUserId: 0
   idIncrementor: 0
-  testUserId: 
-  testUsername: Jobexi
-  userInput: 1
+  testUserId: Jobexi
+  testUsername: 
+  userInput: '!ThisIsMyTrailThereAreManyLikeItButThisOneIsRoachs'
   nameColor: {r: 0.10588236, g: 0.5294118, b: 1, a: 1}
   randomizeNameColor: 1
   rewardCost: 1
   rewardTitle: Bid
   bits: 25
-  isAdmin: 1
+  isAdmin: 0
+  isMod: 1
+  isVIP: 1
   RegularMessageButton: 0
   RedeemRewardButton: 0
   SendBitsButton: 0
@@ -7287,6 +7289,7 @@ MonoBehaviour:
   autoTest: 0
   autoTestSecInterval: 10
   testRandomTiles: 0
+  JobexiTest: 0
 --- !u!1 &558830486
 GameObject:
   m_ObjectHideFlags: 0
@@ -9547,15 +9550,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -27982,15 +27983,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -30739,15 +30738,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -43859,15 +43856,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -54601,6 +54596,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.01221
       objectReference: {fileID: 0}
+    - target: {fileID: 602513896735394807, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 664913869170396905, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313577556977282876, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: df3258acb22babd4880d416318956d30, type: 2}
+    - target: {fileID: 1395116713318148642, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a036f600faba4246ac99e7c3a7a4664, type: 2}
     - target: {fileID: 1404670313316734204, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
       propertyPath: m_Name
       value: Crown
@@ -54672,6 +54683,14 @@ PrefabInstance:
     - target: {fileID: 7198907051187357335, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
       propertyPath: _defaultCrownBase.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880210761949096514, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8e3492d6b23b2748beeecf990baf26c, type: 2}
+    - target: {fileID: 8528935473119234967, guid: f89fe100e3e87d84d9589010df4397a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64604,15 +64623,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}

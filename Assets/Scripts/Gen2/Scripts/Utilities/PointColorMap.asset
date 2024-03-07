@@ -13,19 +13,21 @@ MonoBehaviour:
   m_Name: PointColorMap
   m_EditorClassIdentifier: 
   pointRanges:
-  - {x: -1000, y: -1}
-  - {x: 0, y: 1}
-  - {x: 2, y: 2}
-  - {x: 3, y: 3}
-  - {x: 4, y: 5}
-  - {x: 6, y: 10}
-  - {x: 11, y: 30}
-  - {x: 31, y: 100}
-  - {x: 101, y: 1000}
+  - {x: -10000, y: -1}
+  - {x: 0, y: 10}
+  - {x: 11, y: 50}
+  - {x: 50, y: 100}
+  - {x: 101, y: 500}
+  - {x: 501, y: 1000}
+  - {x: 1001, y: 5000}
+  - {x: 5001, y: 10000}
+  - {x: 10001, y: 50000}
+  - {x: 50001, y: 100000}
+  - {x: 100001, y: 500000}
   meshColors:
   - serializedVersion: 2
-    key0: {r: 0.49056602, g: 0, b: 0.034531284, a: 1}
-    key1: {r: 1, g: 0.30925113, b: 0, a: 1}
+    key0: {r: 1, g: 0.13217431, b: 0, a: 1}
+    key1: {r: 0.8113208, g: 0.25135037, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -53,8 +55,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
-    key1: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    key0: {r: 0.9339623, g: 0.93002325, b: 0.8502581, a: 1}
+    key1: {r: 0.9469855, g: 1, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -77,13 +79,13 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 2
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-    key1: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    key0: {r: 0.9974991, g: 1, b: 0, a: 1}
+    key1: {r: 0.627451, g: 1, b: 0.39215687, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -106,13 +108,13 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 2
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.61006284, g: 1, b: 0.6296029, a: 1}
-    key1: {r: 0.61006284, g: 1, b: 0.6296029, a: 1}
+    key0: {r: 0.627451, g: 1, b: 0.39215687, a: 1}
+    key1: {r: 0.09803922, g: 1, b: 0.09803922, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -135,13 +137,13 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 2
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.33647794, g: 1, b: 0.36998922, a: 1}
-    key1: {r: 0.33647794, g: 1, b: 0.36998922, a: 1}
+    key0: {r: 0.09803922, g: 1, b: 0.09803922, a: 1}
+    key1: {r: 0.29411766, g: 1, b: 0.6862745, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -164,13 +166,13 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 2
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0, g: 1, b: 0.047337294, a: 1}
-    key1: {r: 0, g: 1, b: 0.047337294, a: 1}
+    key0: {r: 0.29411766, g: 1, b: 0.49019608, a: 1}
+    key1: {r: 0.29411766, g: 0.6862745, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -193,42 +195,13 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 2
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0, g: 1, b: 0.78039217, a: 1}
-    key1: {r: 0.65723264, g: 0.75132567, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  - serializedVersion: 2
-    key0: {r: 0.7104204, g: 0.37421376, b: 1, a: 1}
-    key1: {r: 0.84591186, g: 0.71383643, b: 1, a: 1}
+    key0: {r: 0.29411766, g: 0.6862745, b: 1, a: 1}
+    key1: {r: 0.29411766, g: 0.49019608, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -256,8 +229,95 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.82949114, g: 0, b: 1, a: 1}
-    key1: {r: 1, g: 0.7421383, b: 0.96050036, a: 1}
+    key0: {r: 0.0047169924, g: 0.29209468, b: 1, a: 1}
+    key1: {r: 0.29411766, g: 0.49019608, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65150
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  - serializedVersion: 2
+    key0: {r: 0.29411766, g: 0.29411766, b: 1, a: 1}
+    key1: {r: 0.49019608, g: 0, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  - serializedVersion: 2
+    key0: {r: 0.49019608, g: 0, b: 1, a: 1}
+    key1: {r: 1, g: 0, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  - serializedVersion: 2
+    key0: {r: 1, g: 0, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -575,46 +635,9 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  testType: 0
-  testPoints: 1
-  demoT: 1
-  demoMesh: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
-  demoLabel: {r: 0, g: 0, b: 0, a: 1}
-  _logicMap: {x: 0, y: 100}
-  _logicAddGradient:
-    serializedVersion: 2
+  - serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0.5559726, b: 1, a: 1}
-    key2: {r: 0.09560299, g: 0, b: 1, a: 0}
-    key3: {r: 0.35012627, g: 0, b: 1, a: 0}
-    key4: {r: 0.6820469, g: 0, b: 1, a: 0}
-    key5: {r: 1, g: 0, b: 0.9957261, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 655
-    ctime2: 1311
-    ctime3: 2621
-    ctime4: 5243
-    ctime5: 48971
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 2
-    m_ColorSpace: -1
-    m_NumColorKeys: 6
-    m_NumAlphaKeys: 2
-  _logicSubtractGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.6766884, b: 0, a: 1}
-    key1: {r: 0.5566038, g: 0.16889423, b: 0, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -630,7 +653,7 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
+    atime1: 65150
     atime2: 0
     atime3: 0
     atime4: 0
@@ -640,4 +663,70 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  testType: 1
+  testPoints: 1000
+  demoT: 0.2631579
+  demoMesh: {r: 0.29411766, g: 0.6862745, b: 1, a: 1}
+  demoLabel: {r: 0, g: 0, b: 0, a: 1}
+  _logicMap: {x: 0, y: 1000000}
+  _logicAddGradient:
+    serializedVersion: 2
+    key0: {r: 0.73146665, g: 1, b: 0, a: 1}
+    key1: {r: 0.031372547, g: 1, b: 0.15385231, a: 1}
+    key2: {r: 0.3160377, g: 0.36088553, b: 1, a: 0}
+    key3: {r: 0.19480072, g: 0.13501245, b: 0.6981132, a: 0}
+    key4: {r: 0.45847428, g: 0.16470587, b: 1, a: 0}
+    key5: {r: 0.97043884, g: 0.2235294, b: 1, a: 0}
+    key6: {r: 1, g: 1, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 2621
+    ctime2: 6554
+    ctime3: 13107
+    ctime4: 26214
+    ctime5: 52428
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 2
+    m_ColorSpace: -1
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
+  _logicSubtractGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.6766884, b: 0, a: 1}
+    key1: {r: 0.5566038, g: 0.16889423, b: 0, a: 1}
+    key2: {r: 1, g: 0, b: 0.019385815, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32189
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2

@@ -27,7 +27,7 @@ public class MultiShopEntry : ShopEntry
         _gradient = gradient;
         _demoTrail.colorGradient = gradient;
 
-        trailTime = 1.25F;
+        trailTime = 1;
 
         _demoTrail.time = trailTime;
 

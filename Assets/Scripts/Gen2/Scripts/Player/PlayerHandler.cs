@@ -369,12 +369,16 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
         {
             pb._trailRenderer.enabled = true;
             pb._trailRenderer.colorGradient = TrailGradient;
+            if (TrailGradient.colorKeys.Length >= 5)
+                pb._trailRenderer.time = 1.25f;
+            if (TrailGradient.colorKeys.Length >= 4)
+                pb._trailRenderer.time = 1f;
             if (TrailGradient.colorKeys.Length >= 3)
-                pb._trailRenderer.time = AppConfig.inst.GetF("TrailTierThreeTime");
+                pb._trailRenderer.time = 0.75f;
             else if (TrailGradient.colorKeys.Length >= 2)
-                pb._trailRenderer.time = AppConfig.inst.GetF("TrailTierTwoTime");
+                pb._trailRenderer.time = 0.5f;
             else
-                pb._trailRenderer.time = AppConfig.inst.GetF("TrailTierOneTime");
+                pb._trailRenderer.time = 0.25f;
 
         }
     }

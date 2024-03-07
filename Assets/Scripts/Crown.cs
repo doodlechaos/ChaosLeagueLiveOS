@@ -12,6 +12,8 @@ public class Crown : MonoBehaviour
     [SerializeField] private MeshRenderer _crownMeshRenderer;
     [SerializeField] private MeshRenderer _gemsMeshRenderer; 
     [SerializeField] private MeshRenderer _fourthMeshRenderer; 
+    [SerializeField] private MeshRenderer _fifthMeshRenderer; 
+    [SerializeField] private MeshRenderer _sixthMeshRenderer; 
 
     [SerializeField] private Color _defaultCrownBase;
 
@@ -66,6 +68,8 @@ public class Crown : MonoBehaviour
     {
         _gemsMeshRenderer.gameObject.SetActive(false);
         _fourthMeshRenderer.gameObject.SetActive(false);
+        _fifthMeshRenderer.gameObject.SetActive(false);
+        _sixthMeshRenderer.gameObject.SetActive(false);
 
         //Default
         if (colors.Count <= 0)
@@ -101,13 +105,36 @@ public class Crown : MonoBehaviour
             return;
         }
         //If 4 Colors Set
-        else if (colors.Count >= 4)
+        else if (colors.Count == 4)
         {
             SetBaseColor(colors[0], 25);
             SetTrimColor(colors[1], 25);
             SetGemsColor(colors[2], 25);
             _gemsMeshRenderer.gameObject.SetActive(true);
             _fourthMeshRenderer.gameObject.SetActive(true);
+            return;
+        }
+        //If 5 Colors Set
+        else if (colors.Count == 5)
+        {
+            SetBaseColor(colors[0], 25);
+            SetTrimColor(colors[1], 25);
+            SetGemsColor(colors[2], 25);
+            _gemsMeshRenderer.gameObject.SetActive(true);
+            _fourthMeshRenderer.gameObject.SetActive(true);
+            _fifthMeshRenderer.gameObject.SetActive(true);
+            return;
+        }
+        //If 6 Colors Set
+        else if (colors.Count >= 6)
+        {
+            SetBaseColor(colors[0], 25);
+            SetTrimColor(colors[1], 25);
+            SetGemsColor(colors[2], 25);
+            _gemsMeshRenderer.gameObject.SetActive(true);
+            _fourthMeshRenderer.gameObject.SetActive(true);
+            _fifthMeshRenderer.gameObject.SetActive(true);
+            _sixthMeshRenderer.gameObject.SetActive(true);
             return;
         }
     }
