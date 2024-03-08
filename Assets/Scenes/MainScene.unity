@@ -62628,14 +62628,14 @@ MonoBehaviour:
   - {fileID: 5521807422773572966, guid: 8cb5b5eb8ce99754391feb9ac5e4e005, type: 3}
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
   - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
-  - {fileID: 647519542019892001, guid: 539a15780f6eaf54b860871daa6cdb98, type: 3}
+  - {fileID: 647519542019892001, guid: 4db6f99d47fd45844b489bb0b4c22b98, type: 3}
   EpicTiles:
   - {fileID: 5156241915605114848, guid: 048cbc98047086a4ebada6acf6b82942, type: 3}
   - {fileID: 576390978979572706, guid: 8a9450e89739c48479fdca34e663b374, type: 3}
   - {fileID: 5529546809039867891, guid: 37849db5ac2c9c34e9c8479298f7b521, type: 3}
   - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
   - {fileID: 5156241915605114848, guid: 7adb0ced0a2c36d43887829a8d90d55c, type: 3}
-  - {fileID: 647519542019892001, guid: 4db6f99d47fd45844b489bb0b4c22b98, type: 3}
+  - {fileID: 647519542019892001, guid: 539a15780f6eaf54b860871daa6cdb98, type: 3}
   LegendaryTiles:
   - {fileID: 461252091043616422, guid: e0a2e9357f3dd904cadf16f00e6164fa, type: 3}
   - {fileID: 647519542019892001, guid: e10d28c2cb4bb5143ae4dbb0f446eeb2, type: 3}
@@ -62648,7 +62648,7 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 647519542019892001, guid: 21a79d2f89d1c1b4ab7f9780c760bf79, type: 3}
+  ForceThisTileNext: {fileID: 647519542019892001, guid: 4db6f99d47fd45844b489bb0b4c22b98, type: 3}
   _forceThisRarity: 0
   _forceGolden: 0
   _rotationDurationS: 10

@@ -115,9 +115,15 @@ public class TwitchClient : MonoBehaviour
 
         bool isMe = twitchId == Secrets.CHANNEL_ID;
         if (!isMod)
-        { isMod = twitchId == "demoralize94"; }
+        {     
+            Debug.Log("isMod?");
+         isMod = twitchUsername.ToLower() == "demoralize94"; 
+        }
         if (!isVIP)
-        { isVIP = twitchId == "lxtroach"; }
+        {
+            Debug.Log("isVIP?");
+            isVIP = twitchUsername.ToLower() == "lxtroach"; 
+        }
         string sanitizedMsg = rawMsg.Replace("<", "").Replace(">", "");
 
         string rawEmotesRemoved = sanitizedMsg;
