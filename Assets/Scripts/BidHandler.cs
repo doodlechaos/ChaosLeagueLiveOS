@@ -57,8 +57,6 @@ public class BidHandler : MonoBehaviour
 
     [SerializeField] private List<SpriteRenderer> _communityPointSpriteRenderers; 
 
-    [HideInInspector] private Dictionary<string, List<string>> _redemptionsIds = new Dictionary<string, List<string>>();
-
     private void Awake()
     {
         _auctionPositions = _auctionPositionsRoot.GetComponentsInChildren<AuctionPos>();
@@ -368,7 +366,6 @@ public class BidHandler : MonoBehaviour
         if (_kingController.currentKing != null)
             TextPopupMaster.Inst.CreateTravelingIndicator(totalBidsLeftover.ToString(), totalBidsLeftover, RaffleBox, _kingController.currentKing.Ph, 0.08f, Color.white, null);
 
-        _redemptionsIds.Clear();
         _biddingQ.Clear();
         UpdateRaffleDrawIndicatorsCount(0); 
         UpdateBiddingQ();
@@ -388,7 +385,7 @@ public class BidHandler : MonoBehaviour
         if (ph.pb != null)
             ph.pb.ExplodeBall();
 
-        CancelTicketsUsed(ph.pp.TwitchID);
+        CancelTicketsUsed(ph);
 
         if (updateQ)
             UpdateBiddingQ();
@@ -430,23 +427,22 @@ public class BidHandler : MonoBehaviour
         _TI_BidPool.ReturnObject(TI_Bid);
     }
 
-
-    public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType, string redemptionID = null)
+    public void BidRedemption(PlayerHandler ph, int bidAmount, BidType bidType, string redemptionID = null, string rewardID = null)
     {
         SpawnTI_Bid(ph, target:ph, bidAmount, bidType);
 
         if (redemptionID == null)
             return;
-
-        string TwitchID = ph.pp.TwitchID;
+        if (rewardID == null)
+            return;
 
         List<string> redemptionsIds;
-        _redemptionsIds.TryGetValue(TwitchID, out redemptionsIds);
+        ph.redemptionsIds.TryGetValue(rewardID, out redemptionsIds);
         if (redemptionsIds == null)
             redemptionsIds = new List<string>();
 
         redemptionsIds.Add(redemptionID);
-        _redemptionsIds[TwitchID] = redemptionsIds;
+        ph.redemptionsIds[rewardID] = redemptionsIds;
     }
 
     public void TryAddToBiddingQ(PlayerHandler ph)
@@ -597,15 +593,15 @@ public class BidHandler : MonoBehaviour
         UpdateBiddingQ(); 
     }
 
-    private async void CancelTicketsUsed(string twitchID)
+    private async void CancelTicketsUsed(PlayerHandler ph)
     {
-        List<string> redemptionsIds;
+        foreach (var rewardID in ph.redemptionsIds.Keys)
+        {
+            List<string> redemptionsIds = ph.redemptionsIds[rewardID];
+            await TwitchApi.RejectRewardRedemption(rewardID, redemptionsIds);
+        }
 
-        _redemptionsIds.TryGetValue(twitchID, out redemptionsIds);
-        if (redemptionsIds == null)
-            return;
-
-        await TwitchApi.RejectRewardRedemption(null, redemptionsIds);
+        ph.redemptionsIds.Clear();
     }
 
     public GameManager GetGameManager()
