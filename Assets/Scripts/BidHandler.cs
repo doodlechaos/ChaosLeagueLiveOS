@@ -371,7 +371,7 @@ public class BidHandler : MonoBehaviour
         UpdateBiddingQ();
     }
 
-    public void ClearFromQ(PlayerHandler ph, bool updateQ)
+    public void ClearFromQ(PlayerHandler ph, bool updateQ, bool unbid = false)
     {
         ph.ResetBid();
 
@@ -385,7 +385,7 @@ public class BidHandler : MonoBehaviour
         if (ph.pb != null)
             ph.pb.ExplodeBall();
 
-        CancelTicketsUsed(ph);
+        CancelTicketsUsed(ph, unbid);
 
         if (updateQ)
             UpdateBiddingQ();
@@ -593,12 +593,15 @@ public class BidHandler : MonoBehaviour
         UpdateBiddingQ(); 
     }
 
-    private async void CancelTicketsUsed(PlayerHandler ph)
+    private async void CancelTicketsUsed(PlayerHandler ph, bool unbid)
     {
-        foreach (var rewardID in ph.redemptionsIds.Keys)
+        if (unbid)
         {
-            List<string> redemptionsIds = ph.redemptionsIds[rewardID];
-            await TwitchApi.RejectRewardRedemption(rewardID, redemptionsIds);
+            foreach (var rewardID in ph.redemptionsIds.Keys)
+            {
+                List<string> redemptionsIds = ph.redemptionsIds[rewardID];
+                await TwitchApi.RejectRewardRedemption(rewardID, redemptionsIds);
+            }
         }
 
         ph.redemptionsIds.Clear();
