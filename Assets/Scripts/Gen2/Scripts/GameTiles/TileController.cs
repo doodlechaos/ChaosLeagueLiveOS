@@ -22,12 +22,18 @@ public class TileController : MonoBehaviour
     [SerializeField] private float _rareRarity;
     [SerializeField] private float _epicRarity;
     [SerializeField] private float _legendaryRarity;
+    [SerializeField] private float _mythicRarity;
+    [SerializeField] private float _etherealRarity;
+    [SerializeField] private float _cosmicRarity;
 
     [SerializeField] private List<GameTile> AllRarities; //Adds one to each rarity 
-    [SerializeField] private List<GameTile> CommonTiles; //69%
-    [SerializeField] private List<GameTile> RareTiles; // 25%
-    [SerializeField] private List<GameTile> EpicTiles; // 5%
-    [SerializeField] private List<GameTile> LegendaryTiles; // 1%
+    [SerializeField] private List<GameTile> CommonTiles; //69%      // 50%
+    [SerializeField] private List<GameTile> RareTiles; // 25%       // 30%
+    [SerializeField] private List<GameTile> EpicTiles; // 5%        // 17%
+    [SerializeField] private List<GameTile> LegendaryTiles; // 1%   // 2.7%
+    [SerializeField] private List<GameTile> MythicTiles; // X       // 0.27%
+    [SerializeField] private List<GameTile> EtherealTiles; // X     // 0.027%
+    [SerializeField] private List<GameTile> CosmicTiles; // X       // 0.003%
 
     public Transform HoldingPen;
     public Transform TilesRoot;
@@ -71,6 +77,18 @@ public class TileController : MonoBehaviour
     [SerializeField] private Color _legendaryStartColor;
     [SerializeField] private Color _legendaryEndColor;
     [SerializeField] private Color _legendaryTrimColor;
+    [Space(5)]
+    [SerializeField] private Color _mythicStartColor;
+    [SerializeField] private Color _mythicEndColor;
+    [SerializeField] private Color _mythicTrimColor;
+    [Space(5)]
+    [SerializeField] private Color _etherealStartColor;
+    [SerializeField] private Color _etherealEndColor;
+    [SerializeField] private Color _etherealTrimColor;
+    [Space(5)]
+    [SerializeField] private Color _cosmicStartColor;
+    [SerializeField] private Color _cosmicEndColor;
+    [SerializeField] private Color _cosmicTrimColor;
 
     private int _tileCounter = 0; 
     private int _promptIndex = 0; 
@@ -104,8 +122,23 @@ public class TileController : MonoBehaviour
             tile.TileIDNum = tileID++;
             tile.SetRarity(RarityType.Legendary, _legendaryStartColor, _legendaryEndColor, _legendaryTrimColor);
         }
+        foreach (GameTile tile in MythicTiles)
+        {
+            tile.TileIDNum = tileID++;
+            tile.SetRarity(RarityType.Mythic, _mythicStartColor, _mythicEndColor, _mythicTrimColor);
+        }
+        foreach (GameTile tile in EtherealTiles)
+        {
+            tile.TileIDNum = tileID++;
+            tile.SetRarity(RarityType.Ethereal, _etherealStartColor, _etherealEndColor, _etherealTrimColor);
+        }
+        foreach (GameTile tile in CosmicTiles)
+        {
+            tile.TileIDNum = tileID++;
+            tile.SetRarity(RarityType.Cosmic, _cosmicStartColor, _cosmicEndColor, _cosmicTrimColor);
+        }
         List<GameTile> tilePossibilities = new List<GameTile>();
-        tilePossibilities = tilePossibilities.Concat(AllRarities).Concat(CommonTiles).Concat(RareTiles).Concat(EpicTiles).Concat(LegendaryTiles).ToList(); 
+        tilePossibilities = tilePossibilities.Concat(AllRarities).Concat(CommonTiles).Concat(RareTiles).Concat(EpicTiles).Concat(LegendaryTiles).Concat(MythicTiles).Concat(EtherealTiles).Concat(CosmicTiles).ToList(); 
 
         //Create a pool for each tile type
         foreach (GameTile tile in tilePossibilities)
@@ -246,6 +279,12 @@ public class TileController : MonoBehaviour
                 _goldDistributor.SpawnGoldFromTileRarity(tile); 
                 if (tile.RarityType == RarityType.Legendary)
                     _autoPredictions.LegendarySignal(); 
+                else if (tile.RarityType == RarityType.Mythic)
+                    _autoPredictions.LegendarySignal();
+                else if (tile.RarityType == RarityType.Ethereal)
+                    _autoPredictions.LegendarySignal();
+                else if (tile.RarityType == RarityType.Cosmic)
+                    _autoPredictions.LegendarySignal();
                 continue;
             }
             _tilePools[tile.TileIDNum].ReturnObject(tile);
@@ -297,19 +336,37 @@ public class TileController : MonoBehaviour
         {
             //Select the tile
             float t = Random.Range(0f, 1f);
-            if (t <= _legendaryRarity /*&& (LegendaryTiles.Count > 0 || AllRarities.Count > 0)*/)
+            if (t <= _cosmicRarity)
+            {
+                int index = Random.Range(0, CosmicTiles.Count + AllRarities.Count);
+                tile = (index < CosmicTiles.Count) ? CosmicTiles[index] : AllRarities[index - CosmicTiles.Count];
+                rarity = RarityType.Cosmic;
+            }
+            else if (t <= _cosmicRarity + _etherealRarity)
+            {
+                int index = Random.Range(0, EtherealTiles.Count + AllRarities.Count);
+                tile = (index < EtherealTiles.Count) ? EtherealTiles[index] : AllRarities[index - EtherealTiles.Count];
+                rarity = RarityType.Ethereal;
+            }
+            else if (t <= _cosmicRarity + _etherealRarity + _mythicRarity)
+            {
+                int index = Random.Range(0, MythicTiles.Count + AllRarities.Count);
+                tile = (index < MythicTiles.Count) ? MythicTiles[index] : AllRarities[index - MythicTiles.Count];
+                rarity = RarityType.Mythic;
+            }
+            else if (t <= _cosmicRarity + _etherealRarity + _mythicRarity + _legendaryRarity)
             {
                 int index = Random.Range(0, LegendaryTiles.Count + AllRarities.Count);
                 tile = (index < LegendaryTiles.Count) ? LegendaryTiles[index] : AllRarities[index - LegendaryTiles.Count];
                 rarity = RarityType.Legendary;
             }
-            else if ((t <= (_epicRarity + _legendaryRarity)) /*&& (EpicTiles.Count > 0 || AllRarities.Count > 0)*/)
+            else if (t <= _cosmicRarity + _etherealRarity + _mythicRarity + _legendaryRarity + _epicRarity)
             {
                 int index = Random.Range(0, EpicTiles.Count + AllRarities.Count);
                 tile = (index < EpicTiles.Count) ? EpicTiles[index] : AllRarities[index - EpicTiles.Count];
                 rarity = RarityType.Epic;
             }
-            else if ((t <= _rareRarity + _epicRarity + _legendaryRarity) /*&& (RareTiles.Count > 0 || AllRarities.Count > 0)*/)
+            else if (t <= _cosmicRarity + _etherealRarity + _mythicRarity + _legendaryRarity + _epicRarity + _rareRarity)
             {
                 int index = Random.Range(0, RareTiles.Count + AllRarities.Count);
                 tile = (index < RareTiles.Count) ? RareTiles[index] : AllRarities[index - RareTiles.Count];
@@ -354,9 +411,14 @@ public class TileController : MonoBehaviour
             tile.SetRarity(RarityType.Rare, _rareStartColor, _rareEndColor, _rareTrimColor);
         else if(rarity == RarityType.Epic)
             tile.SetRarity(RarityType.Epic, _epicStartColor, _epicEndColor, _epicTrimColor);
-        else
+        else if (rarity == RarityType.Legendary)
             tile.SetRarity(RarityType.Legendary, _legendaryStartColor, _legendaryEndColor, _legendaryTrimColor);
-
+        else if (rarity == RarityType.Mythic)
+            tile.SetRarity(RarityType.Mythic, _mythicStartColor, _mythicEndColor, _mythicTrimColor);
+        else if (rarity == RarityType.Ethereal)
+            tile.SetRarity(RarityType.Ethereal, _etherealStartColor, _etherealEndColor, _etherealTrimColor);
+        else
+            tile.SetRarity(RarityType.Cosmic, _cosmicStartColor, _cosmicEndColor, _cosmicTrimColor);
         return tile;
     }
 

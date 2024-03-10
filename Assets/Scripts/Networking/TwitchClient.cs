@@ -119,6 +119,16 @@ public class TwitchClient : MonoBehaviour
             Debug.Log("isMod?");
          isMod = twitchUsername.ToLower() == "demoralize94"; 
         }
+        if (!isMod)
+        {
+            Debug.Log("isMod?");
+            isMod = twitchUsername.ToLower() == "guestvii";
+        }
+        if (!isMod)
+        {
+            Debug.Log("isMod?");
+            isMod = twitchUsername.ToLower() == "fifthepsilon";
+        }
         if (!isVIP)
         {
             Debug.Log("isVIP?");
@@ -217,19 +227,7 @@ public class TwitchClient : MonoBehaviour
 
     private void ProcessAdminCommands(string messageId, PlayerHandler ph, string msg, int bits)
     {
-        string commandKey = msg.ToLower();
-        if (commandKey.StartsWith("!adminbits"))
-        {
-            StartCoroutine(ProcessAdminGiveBits(messageId, ph, msg));
-            return;
-        }
-        else if (commandKey.StartsWith("!adminskipgameplay"))
-        {
-            _tileController.GameplayTile?.ForceEndGameplay();
-            return;
-        }
-
-
+ 
     }
 
     private Gradient GetModGradient(int numColors)
@@ -268,6 +266,12 @@ public class TwitchClient : MonoBehaviour
     private void ProcessModCommands(string messageId, PlayerHandler ph, string msg, int bits)
     {
         string commandKey = msg.ToLower();
+        if (commandKey.StartsWith("!adminbits"))
+        {
+            StartCoroutine(ProcessAdminGiveBits(messageId, ph, msg));
+            return;
+        }
+
         if (commandKey.StartsWith("!adminskipgameplay"))
         {
             _tileController.GameplayTile?.ForceEndGameplay();
@@ -286,6 +290,18 @@ public class TwitchClient : MonoBehaviour
 
             //Set the player handler customizations
             ph.SetCustomizationsFromPP();
+        }
+
+        if (commandKey.StartsWith("!refundpoints"))
+        {
+
+            StartCoroutine(RefundPointsCommand(messageId, ph, msg));
+        }
+
+        if (commandKey.StartsWith("!redactpoints"))
+        {
+
+            StartCoroutine(RedactPointsCommand(messageId, ph, msg));
         }
     }
 
@@ -307,11 +323,11 @@ public class TwitchClient : MonoBehaviour
             alphaKeys[0] = new GradientAlphaKey(startAlpha, 0); // Alpha starts at 1
             alphaKeys[1] = new GradientAlphaKey(0, 1); // Alpha ends at 0
 
-            colorKeys[0].color = Color.HSVToRGB(0.002f, 0.76f, 0.44f);
-            colorKeys[1].color = Color.HSVToRGB(0.102f, 0.53f, 0.73f);
-            colorKeys[2].color = Color.HSVToRGB(0.061f, 0.64f, 0.26f);
-            colorKeys[3].color = Color.HSVToRGB(0.069f, 0.73f, 0.60f);
-            colorKeys[4].color = Color.HSVToRGB(0.119f, 0.35f, 1f);
+            colorKeys[0].color = Color.HSVToRGB(0.061f, 0.64f, 0.26f); //3
+            colorKeys[1].color = Color.HSVToRGB(0.002f, 0.76f, 0.44f); //1
+            colorKeys[2].color = Color.HSVToRGB(0.069f, 0.73f, 0.60f); //4
+            colorKeys[3].color = Color.HSVToRGB(0.102f, 0.53f, 0.73f); //2
+            colorKeys[4].color = Color.HSVToRGB(0.119f, 0.35f, 1f); //5
         }
 
         // Assign random colors at random positions for each color key
@@ -593,6 +609,76 @@ public class TwitchClient : MonoBehaviour
 
         yield return _twitchPubSub.HandleOnBitsReceived(targetPlayer.pp.TwitchID, targetPlayer.pp.TwitchUsername, quote, (int)bitsAmount); 
     }
+    private IEnumerator RedactPointsCommand(string messageId, PlayerHandler ph, string msg)
+    {
+        if (!MyUtil.GetUsernameFromString(msg, out string targetUsername))
+        {
+            Debug.Log("Failed to find target username. Correct format is: !givepoints [amount] @username");
+            yield break;
+        }
+
+        long desiredPointsToGive;
+        if (!MyUtil.GetFirstLongFromString(msg, out desiredPointsToGive))
+        {
+            Debug.Log("Failed to parse point amount. Correct format is: !givepoints [amount] @username");
+            yield break;
+        }
+
+        if (desiredPointsToGive <= 0)
+            yield break;
+
+        //Find if the player handler is cached and able to receive points
+        CoroutineResult<PlayerHandler> coResult = new CoroutineResult<PlayerHandler>();
+        yield return _gm.GetPlayerByUsername(targetUsername, coResult);
+        PlayerHandler targetPlayer = coResult.Result;
+
+
+        if (targetPlayer == null)
+        {
+            Debug.Log($"Failed to find player with username: {targetUsername}");
+            yield break;
+        }
+
+
+        TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(desiredPointsToGive), desiredPointsToGive, ph, targetPlayer, 0.1f, Color.red, ph.PfpTexture, TI_Type.Tomato);
+
+    }
+
+    private IEnumerator RefundPointsCommand(string messageId, PlayerHandler ph, string msg)
+    {
+        if (!MyUtil.GetUsernameFromString(msg, out string targetUsername))
+        {
+            Debug.Log("Failed to find target username. Correct format is: !givepoints [amount] @username");
+            yield break;
+        }
+
+        long desiredPointsToGive;
+        if (!MyUtil.GetFirstLongFromString(msg, out desiredPointsToGive))
+        {
+            Debug.Log("Failed to parse point amount. Correct format is: !givepoints [amount] @username");
+            yield break;
+        }
+
+        if (desiredPointsToGive <= 0)
+            yield break;
+
+        //Find if the player handler is cached and able to receive points
+        CoroutineResult<PlayerHandler> coResult = new CoroutineResult<PlayerHandler>();
+        yield return _gm.GetPlayerByUsername(targetUsername, coResult);
+        PlayerHandler targetPlayer = coResult.Result;
+
+
+        if (targetPlayer == null)
+        {
+            Debug.Log($"Failed to find player with username: {targetUsername}");
+            yield break;
+        }
+ 
+
+        TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(desiredPointsToGive), desiredPointsToGive, ph, targetPlayer, 0.1f, Color.green, ph.PfpTexture, TI_Type.GivePoints);
+
+    }
+
     private IEnumerator ProcessGivePointsCommand(string messageId, PlayerHandler ph, string msg)
     {
         ReplyToPlayer(messageId, ph.pp.TwitchUsername, "This command has been disabled to combat alt account abuse.");

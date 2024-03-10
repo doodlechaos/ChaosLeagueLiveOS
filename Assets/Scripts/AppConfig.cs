@@ -71,8 +71,11 @@ public class AppConfig
 
     public static int CommonMult = 1;
     public static int RareMult = 2;
-    public static int EpicMult = 10;
-    public static int LegendaryMult = 40; 
+    public static int EpicMult = 5;
+    public static int LegendaryMult = 10; 
+    public static int MythicMult = 25; 
+    public static int EtherealMult = 50; 
+    public static int CosmicMult = 100; 
 
     public static bool IsPublicBuild()
     {
@@ -101,8 +104,14 @@ public class AppConfig
             return RareMult;
         else if(rarity == RarityType.Epic)
             return EpicMult;
-        else
+        else if (rarity == RarityType.Legendary)
             return LegendaryMult;
+        else if (rarity == RarityType.Mythic)
+            return MythicMult;
+        else if (rarity == RarityType.Ethereal)
+            return EtherealMult;
+        else
+            return CosmicMult;
     }
 
     public static void LoadFromJson(string json)

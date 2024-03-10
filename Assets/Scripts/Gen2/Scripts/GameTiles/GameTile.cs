@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public enum RarityType { Common, Rare, Epic, Legendary }
+public enum RarityType { Common, Rare, Epic, Legendary, Mythic, Ethereal, Cosmic }
 public enum DurationTYpe { Timer, Manual }
 public enum Side { Left, Center, Right}
 public enum TileState { Inactive, LockedInPos, Bidding, Gameplay}
@@ -190,9 +190,7 @@ public class GameTile : MonoBehaviour
         UpdateTileTimer();
         ResetTicketBonus();
 
-        EntrancePipe.LockIcon.enabled = true;
-
-        EntrancePipe.SetTollCost(tc.GetGameManager().GetKingController().TollRate); 
+        EntrancePipe.LockIcon.enabled = true;   
 
         foreach (var resetable in _resetablesRoot.GetComponentsInChildren<IResetable>())
             resetable.MyReset();
@@ -206,6 +204,8 @@ public class GameTile : MonoBehaviour
             if (isGolden)
                 effector.MultiplyCurrValue(AppConfig.inst.GetI("GoldenTileMultiplier"));
         }
+        
+        EntrancePipe.SetTollCost(tc.GetGameManager().GetKingController().TollRate * AppConfig.GetMult(RarityType));
 
         if (_game != null)
         {

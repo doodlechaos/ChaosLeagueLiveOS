@@ -7260,17 +7260,17 @@ MonoBehaviour:
   _twitchClient: {fileID: 719420099}
   _twitchPubSub: {fileID: 943938167}
   _tileController: {fileID: 5393775865149022912}
-  incrementUserId: 0
+  incrementUserId: 1
   idIncrementor: 0
   testUserId: Jobexi
   testUsername: 
-  userInput: '!ThisIsMyTrailThereAreManyLikeItButThisOneIsRoachs'
+  userInput: 
   nameColor: {r: 0.10588236, g: 0.5294118, b: 1, a: 1}
   randomizeNameColor: 1
   rewardCost: 1
   rewardTitle: Bid
   bits: 25
-  isAdmin: 0
+  isAdmin: 1
   isMod: 1
   isVIP: 1
   RegularMessageButton: 0
@@ -7371,6 +7371,9 @@ MonoBehaviour:
   _rareBasePrize: 200
   _epicBasePrize: 1000
   _legendaryBasePrize: 4000
+  _mythicBasePrize: 2500
+  _etherealBasePrize: 5000
+  _cosmicBasePrize: 10000
   _communityPointSpriteRenderers:
   - {fileID: 1886715477}
   - {fileID: 829336118}
@@ -62594,10 +62597,13 @@ MonoBehaviour:
   _twitchClient: {fileID: 719420099}
   _rebellionController: {fileID: 481457712}
   _goldDistributor: {fileID: 2040148666}
-  _commonRarity: 0.6
-  _rareRarity: 0.3
-  _epicRarity: 0.07
-  _legendaryRarity: 0.03
+  _commonRarity: 0.5
+  _rareRarity: 0.33
+  _epicRarity: 0.2
+  _legendaryRarity: 0.05
+  _mythicRarity: 0.015
+  _etherealRarity: 0.003
+  _cosmicRarity: 0.002
   AllRarities:
   - {fileID: 647519542019892001, guid: e7d6d474eb53ee543a42fecfd320c642, type: 3}
   - {fileID: 2605624827304256445, guid: 63656aac225b90f41ab4bf38f06eacb0, type: 3}
@@ -62609,9 +62615,6 @@ MonoBehaviour:
   - {fileID: 6275913431883320091, guid: 20b9c01c75b35e548ad271ade1b2253e, type: 3}
   - {fileID: 7650660916348049875, guid: 9e0939458df50962e92fb6d93392bf7b, type: 3}
   - {fileID: 6216378128248226811, guid: 77738680a8747f347a4bebe51311c36c, type: 3}
-  - {fileID: 647519542019892001, guid: a18aab497cf1c6841a82ebaa6dd15e94, type: 3}
-  - {fileID: 647519542019892001, guid: 0298f78e094f3014991dc262d74a57b5, type: 3}
-  - {fileID: 647519542019892001, guid: 329dd07cfa070d14183c4c73f1e1e8ba, type: 3}
   - {fileID: 647519542019892001, guid: d6cc949e9ad161140929b1773a18f24f, type: 3}
   - {fileID: 647519542019892001, guid: 26b3f328391d70040bd60f82330c48af, type: 3}
   - {fileID: 647519542019892001, guid: 251f1f712c2bae443a8fc841538cc5df, type: 3}
@@ -62620,6 +62623,9 @@ MonoBehaviour:
   - {fileID: 647519542019892001, guid: ef0c18d02f080aa46995b53c9dc1b172, type: 3}
   CommonTiles:
   - {fileID: 647519542019892001, guid: 21a79d2f89d1c1b4ab7f9780c760bf79, type: 3}
+  - {fileID: 647519542019892001, guid: a18aab497cf1c6841a82ebaa6dd15e94, type: 3}
+  - {fileID: 647519542019892001, guid: 0298f78e094f3014991dc262d74a57b5, type: 3}
+  - {fileID: 647519542019892001, guid: 28bfffdc5acedc9499c48892b8cac383, type: 3}
   RareTiles:
   - {fileID: 3504160345019027322, guid: 43bfd3d81bc52eb42867e8c336c8665c, type: 3}
   - {fileID: 9018865158267012433, guid: 1664d906265e7214a846d2921b88bd68, type: 3}
@@ -62629,6 +62635,9 @@ MonoBehaviour:
   - {fileID: 1653556322778236169, guid: 9f68f5d8330c1984891f2334f34985db, type: 3}
   - {fileID: 6717938719452614406, guid: 132c6e47c5033f0419c09a37b585cd98, type: 3}
   - {fileID: 647519542019892001, guid: 4db6f99d47fd45844b489bb0b4c22b98, type: 3}
+  - {fileID: 647519542019892001, guid: ad134cdeac3dc39499cfa18a6d7e9d2b, type: 3}
+  - {fileID: 647519542019892001, guid: ed629e11506970e4bb1943f0387bf312, type: 3}
+  - {fileID: 647519542019892001, guid: 329dd07cfa070d14183c4c73f1e1e8ba, type: 3}
   EpicTiles:
   - {fileID: 5156241915605114848, guid: 048cbc98047086a4ebada6acf6b82942, type: 3}
   - {fileID: 576390978979572706, guid: 8a9450e89739c48479fdca34e663b374, type: 3}
@@ -62636,9 +62645,27 @@ MonoBehaviour:
   - {fileID: 461252091043616422, guid: 747736bcaed87dd40937a536609eef57, type: 3}
   - {fileID: 5156241915605114848, guid: 7adb0ced0a2c36d43887829a8d90d55c, type: 3}
   - {fileID: 647519542019892001, guid: 539a15780f6eaf54b860871daa6cdb98, type: 3}
+  - {fileID: 647519542019892001, guid: ac41b4d8ab2ffe647b0af095bdb6786b, type: 3}
+  - {fileID: 647519542019892001, guid: 55f18e68fab746549b414aa44b937d54, type: 3}
+  - {fileID: 647519542019892001, guid: 6e5cbba5837127e439a386e9f805b3dc, type: 3}
   LegendaryTiles:
   - {fileID: 461252091043616422, guid: e0a2e9357f3dd904cadf16f00e6164fa, type: 3}
   - {fileID: 647519542019892001, guid: e10d28c2cb4bb5143ae4dbb0f446eeb2, type: 3}
+  - {fileID: 647519542019892001, guid: 26f7530080b10ed45bc1033ac5173f2d, type: 3}
+  - {fileID: 647519542019892001, guid: 38203830a5c3f304b91e86221bdd1ad0, type: 3}
+  - {fileID: 647519542019892001, guid: c7166028c5774cc4c8399d8ce3a4879f, type: 3}
+  MythicTiles:
+  - {fileID: 647519542019892001, guid: b3204019cbf704c4291b433d7c38b351, type: 3}
+  - {fileID: 647519542019892001, guid: 0b56f0ece99f0c14eb964321f1ce0930, type: 3}
+  - {fileID: 647519542019892001, guid: 54418fa1028415d40b7249e86ce971ba, type: 3}
+  EtherealTiles:
+  - {fileID: 647519542019892001, guid: 8388dd09192376f429c1145df240d9f1, type: 3}
+  - {fileID: 647519542019892001, guid: ea5f4112b0c3b0349bcd1477865cc9bc, type: 3}
+  - {fileID: 647519542019892001, guid: 5dcda2b378466c541be665e980bc2f33, type: 3}
+  CosmicTiles:
+  - {fileID: 647519542019892001, guid: 8ca145a0d27d6bd42825a5c22bbae41d, type: 3}
+  - {fileID: 647519542019892001, guid: 8178ffa4035d3cc4d92b884051a3767e, type: 3}
+  - {fileID: 647519542019892001, guid: 2b410c0e0611e4841941e788aea7cf15, type: 3}
   HoldingPen: {fileID: 1236041840620280661}
   TilesRoot: {fileID: 6209824866414034768}
   LeftTileCenter: {fileID: 3708241436202060553}
@@ -62648,8 +62675,8 @@ MonoBehaviour:
   GameplayTile: {fileID: 0}
   CurrentBiddingTile: {fileID: 0}
   NextBiddingTile: {fileID: 0}
-  ForceThisTileNext: {fileID: 647519542019892001, guid: 4db6f99d47fd45844b489bb0b4c22b98, type: 3}
-  _forceThisRarity: 0
+  ForceThisTileNext: {fileID: 647519542019892001, guid: 5dcda2b378466c541be665e980bc2f33, type: 3}
+  _forceThisRarity: 5
   _forceGolden: 0
   _rotationDurationS: 10
   _animeTileCountMin: 10
@@ -62720,6 +62747,15 @@ MonoBehaviour:
   _legendaryStartColor: {r: 0.8392157, g: 0.5254902, b: 0, a: 1}
   _legendaryEndColor: {r: 0.7254902, g: 0.49019608, b: 0, a: 1}
   _legendaryTrimColor: {r: 0.9150943, g: 0.8568409, b: 0, a: 1}
+  _mythicStartColor: {r: 0.6792453, g: 0.080246486, b: 0, a: 1}
+  _mythicEndColor: {r: 0.41509432, g: 0.0039854706, b: 0, a: 1}
+  _mythicTrimColor: {r: 0.6745098, g: 0.17400819, b: 0, a: 1}
+  _etherealStartColor: {r: 1, g: 1, b: 1, a: 1}
+  _etherealEndColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
+  _etherealTrimColor: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
+  _cosmicStartColor: {r: 0.095530644, g: 0, b: 0.15100001, a: 1}
+  _cosmicEndColor: {r: 0.1079439, g: 0, b: 0.15, a: 1}
+  _cosmicTrimColor: {r: 0.111931734, g: 0, b: 0.14899999, a: 1}
 --- !u!224 &5399588165134876154
 RectTransform:
   m_ObjectHideFlags: 0

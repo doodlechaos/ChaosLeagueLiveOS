@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointRanges:
   - {x: -10000, y: -1}
-  - {x: 0, y: 10}
-  - {x: 11, y: 50}
-  - {x: 50, y: 100}
-  - {x: 101, y: 500}
+  - {x: 0, y: 5}
+  - {x: 6, y: 50}
+  - {x: 51, y: 500}
   - {x: 501, y: 1000}
   - {x: 1001, y: 5000}
   - {x: 5001, y: 10000}
   - {x: 10001, y: 50000}
   - {x: 50001, y: 100000}
   - {x: 100001, y: 500000}
+  - {x: 500001, y: 1000000}
   meshColors:
   - serializedVersion: 2
     key0: {r: 1, g: 0.13217431, b: 0, a: 1}
@@ -666,8 +666,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   testType: 1
   testPoints: 1000
-  demoT: 0.2631579
-  demoMesh: {r: 0.29411766, g: 0.6862745, b: 1, a: 1}
+  demoT: 1
+  demoMesh: {r: 0.29411766, g: 1, b: 0.6862745, a: 1}
   demoLabel: {r: 0, g: 0, b: 0, a: 1}
   _logicMap: {x: 0, y: 1000000}
   _logicAddGradient:

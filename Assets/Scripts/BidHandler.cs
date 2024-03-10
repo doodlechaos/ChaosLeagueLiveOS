@@ -50,9 +50,12 @@ public class BidHandler : MonoBehaviour
     private ObjectPool<TI_Bid> _TI_BidPool;
 
     [SerializeField] private int _commonBasePrize = 100;
-    [SerializeField] private int _rareBasePrize = 200;
-    [SerializeField] private int _epicBasePrize = 1_000;
-    [SerializeField] private int _legendaryBasePrize = 4_000;
+    [SerializeField] private int _rareBasePrize = 250;
+    [SerializeField] private int _epicBasePrize = 500;
+    [SerializeField] private int _legendaryBasePrize = 1_000;
+    [SerializeField] private int _mythicBasePrize = 2_500;
+    [SerializeField] private int _etherealBasePrize = 5_000;
+    [SerializeField] private int _cosmicBasePrize = 10_000;
     private int _rarityBasePrize = 0;
 
     [SerializeField] private List<SpriteRenderer> _communityPointSpriteRenderers; 
@@ -591,8 +594,14 @@ public class BidHandler : MonoBehaviour
             _rarityBasePrize = _rareBasePrize;
         else if (rarity == RarityType.Epic)
             _rarityBasePrize = _epicBasePrize;
-        else
+        else if (rarity == RarityType.Legendary)
             _rarityBasePrize = _legendaryBasePrize;
+        else if (rarity == RarityType.Mythic) 
+            _rarityBasePrize = _mythicBasePrize;
+        else if (rarity == RarityType.Ethereal)
+            _rarityBasePrize = _etherealBasePrize;
+        else
+            _rarityBasePrize = _cosmicBasePrize;
 
         UpdateBiddingQ(); 
     }
