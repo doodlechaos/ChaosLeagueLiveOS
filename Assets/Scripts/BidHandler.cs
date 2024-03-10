@@ -593,7 +593,7 @@ public class BidHandler : MonoBehaviour
         UpdateBiddingQ(); 
     }
 
-    private async void CancelTicketsUsed(PlayerHandler ph, bool unbid)
+    private async void CancelTicketsUsed(PlayerHandler ph, bool unbid = false)
     {
         if (unbid)
         {
