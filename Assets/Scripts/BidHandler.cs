@@ -611,4 +611,10 @@ public class BidHandler : MonoBehaviour
     {
         return _gm; 
     }
+
+    public void OnApplicationQuit()
+    {
+        foreach (var ph in _biddingQ)
+            CancelTicketsUsed(ph, true);
+    }
 }
