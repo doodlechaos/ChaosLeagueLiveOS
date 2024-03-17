@@ -2,7 +2,7 @@
   "configData": {
     "mainInstructions": {
       "Menu": 3,
-      "Value": "Redeem tickets (channel points) to play!",
+      "Value": "Redeem channel points to play!",
       "UIDisplayText": "Main Instructions Text"
     },
     "defaultVoiceID": {
