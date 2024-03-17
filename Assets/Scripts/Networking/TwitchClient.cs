@@ -451,10 +451,7 @@ public class TwitchClient : MonoBehaviour
     }
     private IEnumerator ProcessGivePointsCommand(string messageId, PlayerHandler ph, string msg)
     {
-        ReplyToPlayer(messageId, ph.pp.TwitchUsername, "This command has been disabled to combat alt account abuse.");
-        yield break;
-
-/*        if (!MyUtil.GetUsernameFromString(msg, out string targetUsername))
+        if (!MyUtil.GetUsernameFromString(msg, out string targetUsername))
         {
             ReplyToPlayer(messageId, ph.pp.TwitchUsername, "Failed to find target username. Correct format is: !givepoints [amount] @username");
             yield break;
@@ -506,13 +503,9 @@ public class TwitchClient : MonoBehaviour
         ph.SubtractPoints(desiredPointsToGive, canKill: false, createTextPopup: true);
 
         TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(desiredPointsToGive), desiredPointsToGive, ph, targetPlayer, 0.1f, Color.green, ph.PfpTexture, TI_Type.GivePoints);
-*/
     }
     private IEnumerator ProcessGiveGoldCommand(string messageId, PlayerHandler ph, string msg)
     {
-        ReplyToPlayer(messageId, ph.pp.TwitchUsername, "This command has been disabled (temporarily?) to combat alt account abuse.");
-        yield break;
-        /*
         if (!MyUtil.GetUsernameFromString(msg, out string targetUsername))
         {
             ReplyToPlayer(messageId, ph.pp.TwitchUsername, "Failed to find target username. Correct format is: !givegold [amount] @username");
@@ -564,7 +557,6 @@ public class TwitchClient : MonoBehaviour
         ph.SubtractGold((int)desiredGoldToGive, createTextPopup: true);
 
         TextPopupMaster.Inst.CreateTravelingIndicator(MyUtil.AbbreviateNum4Char(desiredGoldToGive), desiredGoldToGive, ph, targetPlayer, 0.1f, MyColors.Gold, ph.PfpTexture, TI_Type.GiveGold);
-        */
     }
     private IEnumerator ProcessThrowTomato(string messageId, PlayerHandler ph, string msg)
     {
