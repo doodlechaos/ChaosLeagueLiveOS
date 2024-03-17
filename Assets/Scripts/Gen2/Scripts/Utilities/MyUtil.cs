@@ -121,8 +121,8 @@ public static class MyUtil
     {
         string label = AbbreviateNum3Char((int)value);
 
-        if(effect.HasFlag(PBEffect.Add) || effect.HasFlag(PBEffect.Subtract))
-        {}
+        if (AppConfig.inst.GetB("ShowSubstractSign") && effect.HasFlag(PBEffect.Subtract))
+            label = "-" + label;
         else if (effect.HasFlag(PBEffect.Zero))
         {
             if(_zoneMultiplier > 0)
@@ -132,7 +132,7 @@ public static class MyUtil
         }
         else if (effect.HasFlag(PBEffect.Multiply))
             label = "x" + value;
-        else if (effect.HasFlag(PBEffect.None))
+        else if (effect == PBEffect.None)
             label = ""; 
 
         return label;
