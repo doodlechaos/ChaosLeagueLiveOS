@@ -362,7 +362,7 @@ public class TwitchClient : MonoBehaviour
 
         else if (commandKey.StartsWith("!cancelbid") || commandKey.StartsWith("!unbid"))
         {
-            _bidHandler.ClearFromQ(ph, updateQ:true); 
+            _bidHandler.ClearFromQ(ph, updateQ:true, unbid:true);
         }
 
         else if (commandKey.StartsWith("!song"))

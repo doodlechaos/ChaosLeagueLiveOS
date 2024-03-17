@@ -1,5 +1,4 @@
-﻿
-using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+﻿using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -57,6 +56,9 @@ public class PlayerHandler : MonoBehaviour, TravelingIndicatorIO, TI_Bid_IO
 
     private float _receiveGoldTimer = 0;
     private long _receiveGoldAccumulator = 0; 
+
+    //                                  rewardID, redemptionsIds List
+    [HideInInspector] public Dictionary<string, List<string>> redemptionsIds = new Dictionary<string, List<string>>();
 
     public IEnumerator CInitPlayerHandler(GameManager gm, string twitchID)
     {

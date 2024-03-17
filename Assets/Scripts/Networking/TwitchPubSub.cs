@@ -12,7 +12,15 @@ using TwitchLib.Unity;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 using SubscriptionPlan = TwitchLib.PubSub.Enums.SubscriptionPlan;
-public enum BidType { ChannelPoints, Bits, NewPlayerBonus, NewSubBonus}
+
+public enum BidType
+{
+    ChannelPoints,
+    Bits,
+    NewPlayerBonus,
+    NewSubBonus
+}
+
 public class TwitchPubSub : MonoBehaviour
 {
     [SerializeField] private GameManager _gm;
@@ -67,9 +75,9 @@ public class TwitchPubSub : MonoBehaviour
 
         Debug.Log($"reward redeemed {e.ChannelId} rewardID: {rewardID} redemptionID: {redemptionID}"); 
 
-        StartCoroutine(HandleOnChannelPointsRedeemed(user.Id, user.Login, rewardTitle, redemption.UserInput, redemption.Reward.Cost)); 
+        StartCoroutine(HandleOnChannelPointsRedeemed(user.Id, user.Login, rewardTitle, redemption.UserInput, redemption.Reward.Cost, redemptionID, rewardID));
     }
-    public IEnumerator HandleOnChannelPointsRedeemed(string twitchId, string twitchUsername, string rewardTitle, string msg, int cost)
+    public IEnumerator HandleOnChannelPointsRedeemed(string twitchId, string twitchUsername, string rewardTitle, string msg, int cost, string redemptionID = null, string rewardID = null)
     {
         //Get the player handler of the player redeeming tickets
         CoroutineResult<PlayerHandler> coResult = new CoroutineResult<PlayerHandler>();
@@ -91,7 +99,7 @@ public class TwitchPubSub : MonoBehaviour
         else if (rewardTitle.StartsWith("Activate Water"))
             _waterBitTrigger.AddBits(twitchUsername, AppConfig.inst.GetI("ThroneWaterCost"));
         else
-            _ticketHandler.BidRedemption(ph, cost, BidType.ChannelPoints);
+            _ticketHandler.BidRedemption(ph, cost, BidType.ChannelPoints, redemptionID, rewardID);
 
     }
 
