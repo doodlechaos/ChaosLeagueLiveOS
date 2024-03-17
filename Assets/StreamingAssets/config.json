@@ -251,6 +251,11 @@
       "Menu": 5,
       "Value": 15,
       "UIDisplayText": "DB Backup Frequency (minutes)"
+    },
+    "AutoAuthorizing": {
+      "Menu": 4,
+      "Value": true,
+      "UIDisplayText": "Open Link to Twitch at startup"
     }
   },
   "volumes": {

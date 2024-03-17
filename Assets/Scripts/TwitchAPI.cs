@@ -73,7 +73,8 @@ public class TwitchApi : MonoBehaviour
     {
         GenerateRandomState();
 
-        AskForBotAuthorization();
+        if (AppConfig.inst.GetB("AutoAuthorizing"))
+            AskForBotAuthorization();
 
         _cts = new CancellationTokenSource();
         _ = AutoRefreshToken(_cts);
